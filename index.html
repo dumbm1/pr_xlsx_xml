@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>pr-xlsx-xml</title>
+
+		<link rel="stylesheet" href="assets/css/main.css">
+
+		<style>
+         .output {
+          width: 100%;
+          height: 100%;
+          min-height: 100px;
+          background-color: lightgoldenrodyellow;
+         }
+		</style>
+		</head>
+		<body>
+
+			<input id="get_xlsx" type="file" accept=".xlsx">
+			<button id="ink_coverage">Ink Coverage (%)</button>
+			<button id="reload_panel">Reload</button>
+
+			<textarea id="output" class="output">***</textarea>
+
+			<script src="assets/js/CSInterface.js"></script>
+			<script src="assets/js/newCSInterface.js"></script>
+			<script src="assets/js/themeChanger.js"></script>
+			<script src="assets/js/fitPanelToContent.js"></script>
+			<script src="assets/js/reloadPanel.js"></script>
+			<script src="assets/js/sheetJS/xlsx.js"></script>
+			<script defer src="assets/js/main.js"></script>
+	</body>
+</html>

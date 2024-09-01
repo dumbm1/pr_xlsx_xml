@@ -1,0 +1,13 @@
+__pr-table__order-number__
+__pr-table__customer-company-name__
+__pr-table__order-name__
+
+__pr-table__sensor-label-size__
+__pr-table__sensor-label-color__
+__pr-table__sensor-label-field-color__
+
+__pr-table__icm-profile__
+__pr-table__print-side__
+__pr-table__material-composition__
+
+__current_date_and_time__

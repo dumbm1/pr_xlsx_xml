@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Отладка HTML\CSS\JS (но не ExtendScript):
+
+ - Открыть панель расширения в Иллюстраторе
+ - Открыть браузер Chrome
+ - В адресной строке ввести адрес панели:
+   - http://localhost:1112
+
+Далее можно воспользоваться всеми инструментами отладчика Chrome.
+Небольшая справка по отладчику: https://learn.javascript.ru/debugging-chrome
+-->
+
+<ExtensionList>
+    <Extension Id="pr_xlsx_xml">
+        <HostList>
+            <Host Name="ILST" Port="1112"/>
+        </HostList>
+    </Extension>
+</ExtensionList>
+

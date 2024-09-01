@@ -1,0 +1,39 @@
+.page {
+ color: var(--color-primary);
+ background-color: var(--bg-primary);
+ padding: .5rem;
+ position: relative;
+ display: grid;
+ gap: 2rem;
+ height: 100%;
+ grid-template-rows: 1fr auto;
+}
+
+.page__section {
+ box-sizing: border-box;
+ padding: 0rem .3rem;
+ position: relative;
+}
+
+.page__section-title {
+ padding-bottom: .6rem;
+ padding-top: 1rem;
+ text-transform: uppercase;
+ font-size: 1.1rem;
+}
+
+.page__inner {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+ gap: .3rem;
+}
+
+.page__line-sep {
+ position: absolute;
+ width: calc(100vw - .8rem);
+ left: 50%;
+ transform: translate(-50%, .6rem);
+ height: 2px;
+ box-sizing: border-box;
+ border-bottom: 2px solid var(--border-secondary);
+}

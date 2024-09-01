@@ -1,0 +1,11 @@
+.container {
+ margin: 0 auto;
+ box-sizing: border-box;
+}
+
+.container_col {
+ display: grid;
+ margin: 0;
+ grid-template-rows: 1fr 1fr;
+ gap: 1rem;
+}

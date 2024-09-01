@@ -1,0 +1,19 @@
+/**
+* Точка подключения всех стилей панели
+*/
+
+@import "normalize.css";
+@import "fonts.css";
+@import "varColors.css";
+@import "../../components/page/page.css";
+@import "../../components/button/button.css";
+@import "../../components/footer/footer.css";
+@import "../../components/container/container.css";
+
+
+body {
+ /*font-family: "Source Sans Pro", sans-serif;*/
+ font-family: "Tahoma", Sans-Serif;
+ overflow: hidden; /* for correct work fitPanelToContent() */
+}
+
