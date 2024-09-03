@@ -16,12 +16,27 @@ reload_panel.addEventListener('click', () => {
 });
 
 getInkCoverage();
-getXlsx();
+let o = getXlsx();
+setXlsxData(o);
 
-function setXlsxData() {
- csInterface.evalScript('setXlsxData()', function (result) {
-  alert(result);
- });
+/*function setXlsxData() {
+ const testBtn = document.querySelector('#test');
+ testBtn.addEventListener('click', ()=>{
+  csInterface.evalScript('setXlsxData(' +JSON.stringify(o) + ')' , function (result) {
+   alert(result);
+  });
+ })
+
+}*/
+function setXlsxData(o) {
+ const testBtn = document.querySelector('#test');
+ testBtn.addEventListener('click', ()=>{
+
+  csInterface.evalScript('setXlsxData(' +JSON.stringify(o) + ')' , function (result) {
+   alert(result);
+  });
+ })
+
 }
 
 function getXlsx() {
@@ -39,27 +54,126 @@ function getXlsx() {
    const workSheet = workBook.Sheets[workBook.SheetNames[0]];
 
    const dataForTable = {
-    customerCompanyName: workSheet.C4.v,
-    orderNumber: workSheet.C5.v,
-    orderName: workSheet.E6.v,
+    customerCompanyName: workSheet.C4?.v,
+    orderNumber: workSheet.C5?.v,
+    orderName: workSheet.E6?.v,
+
+    printSideUp: workSheet.F23?.v,
+    printSideDn: workSheet.F24?.v,
+
+    formCilinder: workSheet.E40?.v,
+    rapport: workSheet.L42?.v,
+    streamWidth: workSheet.L40?.v,
+    streamsNumber: workSheet.D6?.v,
+    supports: workSheet.L44?.v,
+    filmWidth: workSheet.E42?.v,
+
+    inkNumber: workSheet.E43?.v,
+    inkChange: workSheet.L37?.v,
+
+    sensorLabelSize: workSheet.J49?.v,
+    sensorLabelColor: workSheet.J51?.v,
+    sensorFieldColor: workSheet.J50?.v,
+
+    filmPrint: workSheet.F53?.v,
+    filmCover: workSheet.F54?.v,
+
+    windingSchema: workSheet.L46?.v,
+
+    getFilmComposition() {
+     try {
+      if (this.filmPrint && this.filmCover) {
+       return this.filmPrint + '+' + this.filmCover;
+      } else if (this.filmPrint) {
+       return this.filmPrint;
+      } else {
+       return new Error('Уточнить состав готового материала');
+      }
+     } catch (e) {
+      return new Error('Неизвестная ошибка определения состава материала');
+     }
+    },
+
+    getPrintSide() {
+     try {
+      if (this.printSideUp) {
+       return 'Прямая';
+      } else if (this.printSideDn) {
+       return 'Обратная';
+      } else {
+       return new Error('уточнить тип печати');
+      }
+     } catch (e) {
+      return new Error('Неизвестная ошибка определения типа печати');
+     }
+    },
+
+    getMountWidth() {
+     try {
+      const MIN_PRINT_FIELDS = 4;
+      const MIN_SUPPORTS_CUTTING_FIELDS = 4;
+      const MIN_SUPPORTS_WIDTH = 4;
+      const filmW = this.filmWidth;
+      const printW = +this.streamWidth * +this.streamsNumber;
+      const totalFields = filmW - printW - MIN_PRINT_FIELDS;
+      if (!this.supports.match(/кресты/i)) return filmW;
+      return filmW + 14;
+     } catch (e) {
+      return new Error('Неизвестная ошибка определения ширины монтажа');
+     }
+
+    }
    };
+
+   Object.defineProperty(dataForTable, 'getPrintSide', {enumerable: false});
+   Object.defineProperty(dataForTable, 'getFilmComposition', {enumerable: false});
+   Object.defineProperty(dataForTable, 'getMountWidth', {enumerable: false});
 
    for (let key in dataForTable) {
     let val = dataForTable[key];
-    outStr += val + '\n\n';
+    outStr += val + ';\n';
    }
 
-   output.value = outStr;
+   output.value = outStr +
+    dataForTable.getPrintSide() + '\n' + dataForTable.getFilmComposition() + '\n' + dataForTable.getMountWidth();
 
    return dataForTable;
 
   } catch (e) {
-   output.innerHTML = e;
+   output.innerHTML = e.line + ', ' + e.message;
   }
 
  });
 
 }
+
+`Номер C5 
+Наименование продукта E6
+Заказчик C4
+
+тип печати
+F23 - прямая
+F24 - обратная
+
+формный вал E40
+Раппорт L42
+Ширина ручья L40
+Количество ручьев D6
+Приводные элементы (если есть "кресты", то ширина монтажа + 14 или + 16) L44
+Ширина материала (в таблице не надо) E42
+
+Кол-во красок E43
+Меняется красок L37
+
+Размер метки J49
+Цвет поля метки J50
+Цвет метки J51
+
+Материал запечатываемый F53
+Матриал покрывной F54
+
+Схема намотки L46
+`;
 
 function getInkCoverage() {
  const inkCoverageBtn = document.querySelector('#ink_coverage');
@@ -107,47 +221,4 @@ __pr-table__print-side__
 __pr-table__material-composition__
 
 __current_date_and_time__`;
-`Номер
-C5
-Наименование продукта
-E6
-Заказчик
-C4
 
-тип печати
-F23 - прямая
-F24 - обратная
-
-формный вал
-E40
-Раппорт
-L42
-Ширина ручья
-L40
-Количество ручьев
-D6
-Приводные элементы (если есть "кресты", то ширина монтажа + 14 или + 16)
-L44
-Ширина материала (в таблице не надо)
-E42
-
-Кол-во красок
-E43
-Меняется красок
-L37
-
-Размер метки
-J49
-Цвет поля метки
-J50
-Цвет метки
-J51
-
-Материал запечатываемый
-F53
-Матриал покрывной
-F54
-
-Схема намотки
-L46
-`;

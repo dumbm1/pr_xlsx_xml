@@ -1,3 +1,5 @@
+//@include json2.js
+
 function getXmlStr() {
 
  if (!documents.length) {
@@ -23,6 +25,10 @@ function getXmlStr() {
  return s;
 }
 
-function setXlsxData(){
- return 'Hello, no data there. Coming soon...'
+function setXlsxData(o){
+ var obj =  JSON.parse(o);
+ alert(obj.orderNumber);
 }
+
+
+
