@@ -2,6 +2,7 @@
  * При загрузке расширения высота панели подгонятся по ВЫСОТЕ контента.
  * Ограничения по габаритам панели заданы в файле CSXS/manifest.xml
  * */
+
 try { fitPanelToContent();} catch (e) { }
 
 /**
@@ -15,27 +16,29 @@ reload_panel.addEventListener('click', () => {
  location.reload();
 });
 
+loadJSX('json2.js');
+
 getInkCoverage();
-let o = getXlsx();
-setXlsxData(o);
+getXlsx();
+setXlsxData();
 
 /*function setXlsxData() {
  const testBtn = document.querySelector('#test');
  testBtn.addEventListener('click', ()=>{
-  csInterface.evalScript('setXlsxData(' +JSON.stringify(o) + ')' , function (result) {
-   alert(result);
-  });
+ csInterface.evalScript('setXlsxData(' +JSON.stringify(o) + ')' , function (result) {
+ alert(result);
+ });
  })
 
-}*/
-function setXlsxData(o) {
+ }*/
+
+function setXlsxData() {
  const testBtn = document.querySelector('#test');
- testBtn.addEventListener('click', ()=>{
+ testBtn.addEventListener('click', () => {
 
-  csInterface.evalScript('setXlsxData(' +JSON.stringify(o) + ')' , function (result) {
-   alert(result);
+  csInterface.evalScript('setXlsxData(' + JSON.stringify(getXlsx()) + ')', function (result) {
   });
- })
+ });
 
 }
 
@@ -47,13 +50,14 @@ function getXlsx() {
  input.addEventListener("change", async e => {
 
   try {
-   const file = e.target.files[0];
-   const data = await file.arrayBuffer();
+   return getFf(e);
+   /*   const file = e.target.files[0];
+    const data = await file.arrayBuffer();
 
-   const workBook = XLSX.read(data);
-   const workSheet = workBook.Sheets[workBook.SheetNames[0]];
+    const workBook = XLSX.read(data);
+    const workSheet = workBook.Sheets[workBook.SheetNames[0]];
 
-   const dataForTable = {
+    const dataForTable = {
     customerCompanyName: workSheet.C4?.v,
     orderNumber: workSheet.C5?.v,
     orderName: workSheet.E6?.v,
@@ -81,70 +85,73 @@ function getXlsx() {
     windingSchema: workSheet.L46?.v,
 
     getFilmComposition() {
-     try {
-      if (this.filmPrint && this.filmCover) {
-       return this.filmPrint + '+' + this.filmCover;
-      } else if (this.filmPrint) {
-       return this.filmPrint;
-      } else {
-       return new Error('Уточнить состав готового материала');
-      }
-     } catch (e) {
-      return new Error('Неизвестная ошибка определения состава материала');
-     }
+    try {
+    if (this.filmPrint && this.filmCover) {
+    return this.filmPrint + '+' + this.filmCover;
+    } else if (this.filmPrint) {
+    return this.filmPrint;
+    } else {
+    return new Error('Уточнить состав готового материала');
+    }
+    } catch (e) {
+    return new Error('Неизвестная ошибка определения состава материала');
+    }
     },
 
     getPrintSide() {
-     try {
-      if (this.printSideUp) {
-       return 'Прямая';
-      } else if (this.printSideDn) {
-       return 'Обратная';
-      } else {
-       return new Error('уточнить тип печати');
-      }
-     } catch (e) {
-      return new Error('Неизвестная ошибка определения типа печати');
-     }
+    try {
+    if (this.printSideUp) {
+    return 'Прямая';
+    } else if (this.printSideDn) {
+    return 'Обратная';
+    } else {
+    return new Error('уточнить тип печати');
+    }
+    } catch (e) {
+    return new Error('Неизвестная ошибка определения типа печати');
+    }
     },
 
     getMountWidth() {
-     try {
-      const MIN_PRINT_FIELDS = 4;
-      const MIN_SUPPORTS_CUTTING_FIELDS = 4;
-      const MIN_SUPPORTS_WIDTH = 4;
-      const filmW = this.filmWidth;
-      const printW = +this.streamWidth * +this.streamsNumber;
-      const totalFields = filmW - printW - MIN_PRINT_FIELDS;
-      if (!this.supports.match(/кресты/i)) return filmW;
-      return filmW + 14;
-     } catch (e) {
-      return new Error('Неизвестная ошибка определения ширины монтажа');
-     }
+    try {
+    const MIN_PRINT_FIELDS = 4;
+    const MIN_SUPPORTS_CUTTING_FIELDS = 4;
+    const MIN_SUPPORTS_WIDTH = 4;
+    const filmW = this.filmWidth;
+    const printW = +this.streamWidth * +this.streamsNumber;
+    const totalFields = filmW - printW - MIN_PRINT_FIELDS;
+    if (!this.supports.match(/кресты/i)) return filmW;
+    return filmW + 14;
+    } catch (e) {
+    return new Error('Неизвестная ошибка определения ширины монтажа');
+    }
 
     }
-   };
+    };
 
-   Object.defineProperty(dataForTable, 'getPrintSide', {enumerable: false});
-   Object.defineProperty(dataForTable, 'getFilmComposition', {enumerable: false});
-   Object.defineProperty(dataForTable, 'getMountWidth', {enumerable: false});
+    Object.defineProperty(dataForTable, 'getPrintSide', {enumerable: false});
+    Object.defineProperty(dataForTable, 'getFilmComposition', {enumerable: false});
+    Object.defineProperty(dataForTable, 'getMountWidth', {enumerable: false});
 
-   for (let key in dataForTable) {
+    for (let key in dataForTable) {
     let val = dataForTable[key];
     outStr += val + ';\n';
-   }
+    }
 
-   output.value = outStr +
+    output.value = outStr +
     dataForTable.getPrintSide() + '\n' + dataForTable.getFilmComposition() + '\n' + dataForTable.getMountWidth();
 
-   return dataForTable;
+    return dataForTable;*/
+
+
 
   } catch (e) {
-   output.innerHTML = e.line + ', ' + e.message;
+   output.innerHTML = e;
+   return;
   }
 
  });
-
+ return 'Вот блять тебе и о!';
 }
 
 `Номер C5 
@@ -208,17 +215,112 @@ function getInkCoverage() {
  });
 }
 
-`__pr-table__order-number__
-__pr-table__customer-company-name__
-__pr-table__order-name__
+function loadJSX(fileName) {
+ var extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + '/assets/jsx/';
+ csInterface.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
+}
 
-__pr-table__sensor-label-size__
-__pr-table__sensor-label-color__
-__pr-table__sensor-label-field-color__
+async function getFf(e) {
+ const input = document.querySelector('#get_xlsx');
+ const output = document.querySelector("#output");
+ let outStr = '';
 
-__pr-table__icm-profile__
-__pr-table__print-side__
-__pr-table__material-composition__
+ const file = e.target.files[0];
+ const data = await file.arrayBuffer();
 
-__current_date_and_time__`;
+ const workBook = XLSX.read(data);
+ const workSheet = workBook.Sheets[workBook.SheetNames[0]];
 
+ const dataForTable = {
+  customerCompanyName: workSheet.C4?.v,
+  orderNumber: workSheet.C5?.v,
+  orderName: workSheet.E6?.v,
+
+  printSideUp: workSheet.F23?.v,
+  printSideDn: workSheet.F24?.v,
+
+  formCilinder: workSheet.E40?.v,
+  rapport: workSheet.L42?.v,
+  streamWidth: workSheet.L40?.v,
+  streamsNumber: workSheet.D6?.v,
+  supports: workSheet.L44?.v,
+  filmWidth: workSheet.E42?.v,
+
+  inkNumber: workSheet.E43?.v,
+  inkChange: workSheet.L37?.v,
+
+  sensorLabelSize: workSheet.J49?.v,
+  sensorLabelColor: workSheet.J51?.v,
+  sensorFieldColor: workSheet.J50?.v,
+
+  filmPrint: workSheet.F53?.v,
+  filmCover: workSheet.F54?.v,
+
+  windingSchema: workSheet.L46?.v,
+
+  filmComposition: '-', //this.getFilmComposition(),
+  printSide: '-', // this.getPrintSide(),
+
+  getFilmComposition() {
+   try {
+    if (this.filmPrint && this.filmCover) {
+     return this.filmPrint + '+' + this.filmCover;
+    } else if (this.filmPrint) {
+     return this.filmPrint;
+    } else {
+     return new Error('Уточнить состав готового материала');
+    }
+   } catch (e) {
+    return new Error('Неизвестная ошибка определения состава материала');
+   }
+  },
+
+  getPrintSide() {
+   try {
+    if (this.printSideUp) {
+     return 'Прямая';
+    } else if (this.printSideDn) {
+     return 'Обратная';
+    } else {
+     return new Error('уточнить тип печати');
+    }
+   } catch (e) {
+    return new Error('Неизвестная ошибка определения типа печати');
+   }
+  },
+
+  /*getMountWidth() {
+   try {
+   const MIN_PRINT_FIELDS = 4;
+   const MIN_SUPPORTS_CUTTING_FIELDS = 4;
+   const MIN_SUPPORTS_WIDTH = 4;
+   const filmW = this.filmWidth;
+   const printW = +this.streamWidth * +this.streamsNumber;
+   const totalFields = filmW - printW - MIN_PRINT_FIELDS;
+   if (!this.supports.match(/кресты/i)) return filmW;
+   return filmW + 14;
+   } catch (e) {
+   return new Error('Неизвестная ошибка определения ширины монтажа');
+   }
+
+   }*/
+ };
+
+ Object.defineProperty(dataForTable, 'getPrintSide', {enumerable: false});
+ Object.defineProperty(dataForTable, 'getFilmComposition', {enumerable: false});
+ // Object.defineProperty(dataForTable, 'getMountWidth', {enumerable: false});
+
+ for (let key in dataForTable) {
+  let val = dataForTable[key];
+  outStr += val + ';\n';
+ }
+
+ output.value = outStr /*+
+  dataForTable.getPrintSide() + '\n' + dataForTable.getFilmComposition() + '\n' + dataForTable.getMountWidth()*/;
+
+ csInterface.evalScript('setXlsxData(' + JSON.stringify(dataForTable) + ')', function (result) {
+  alert(result);
+ });
+
+ return dataForTable;
+}
