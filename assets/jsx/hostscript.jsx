@@ -70,7 +70,7 @@ function setXlsxData(o) {
   '__pr-stamp__windingSchema_4__',
   '__pr-stamp__windingSchema_5__'
  ]
-
+ setWindingSchema(stampWindingSchemaCodes, o);
  return push2obj(stampFieldNames, o);
 
  function setWindingSchema(stampWindingSchemaCodes, o) {
@@ -91,7 +91,7 @@ function setXlsxData(o) {
   } catch (e) {
   }
 
-  switch (schemaNum) {
+  switch (+schemaNum) {
    case 1:
    case 2:
    case 3:
@@ -105,6 +105,7 @@ function setXlsxData(o) {
    default:
     break;
   }
+
  }
 
  function push2obj(stampFieldNames, o) {
@@ -135,13 +136,16 @@ function setXlsxData(o) {
 
      switch (fieldName) {
       case '__pr-stamp__printSide__':
-       if (o.printSideUp === undefined) {
-        fieldElem.contents = 'Прямая';
-       } else if (o.printSideDn) {
-        fieldElem.contents = 'Обратная';
-       } else {
-        fieldElem.contents = blankField;
-       }
+       fieldElem.contents = blankField;
+       if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
+       if (o.printSideDn !== undefined) fieldElem.contents = 'Обратная';
+       /*       if (o.printSideUp === undefined) {
+               fieldElem.contents = 'Прямая';
+              } else if (o.printSideDn) {
+               fieldElem.contents = 'Обратная';
+              } else {
+               fieldElem.contents = blankField;
+              }*/
        break;
       case '__pr-stamp__filmComposition__':
        var filmPrint = '',
