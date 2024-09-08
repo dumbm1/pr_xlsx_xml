@@ -106,7 +106,7 @@ async function getFf(e) {
   printSideUp: workSheet.F23?.v,
   printSideDn: workSheet.F24?.v,
 
-  formCilinder: workSheet.E40?.v,
+  formCylinder: workSheet.E40?.v,
   rapport: workSheet.L42?.v,
   streamWidth: workSheet.L40?.v,
   streamsNumber: workSheet.D6?.v,
@@ -128,7 +128,7 @@ async function getFf(e) {
 
  for (let key in dataForTable) {
   let val = dataForTable[key];
-  outStr += key + ': ' + val + '(' + typeof val + ');\n';
+  outStr += key + ': ' + val + ' (' + typeof val  + ')\n\n';
  }
 
  output.value = outStr /*+
