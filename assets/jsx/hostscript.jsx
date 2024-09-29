@@ -69,7 +69,7 @@ function setXlsxData(o) {
   '__pr-stamp__windingSchema_3__',
   '__pr-stamp__windingSchema_4__',
   '__pr-stamp__windingSchema_5__'
- ]
+ ];
  setWindingSchema(stampWindingSchemaCodes, o);
  return push2obj(stampFieldNames, o);
 
@@ -116,69 +116,263 @@ function setXlsxData(o) {
   for (var i = 0; i <= stampFieldNames.length; i++) {
    var fieldName = stampFieldNames[i];
 
-   if (fieldName.match('_mainTable__')) {
-    try {
-     var fieldElem = ad.textFrames.getByName(fieldName);
-     fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
-    } catch (e) {
-     errors += e.line + '. ' + e.message + '\n';
-    }
-   } else if (fieldName.match('_txtTable__')) {
-    try {
-     var fieldElem = ad.textFrames.getByName(fieldName);
-     fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
-    } catch (e) {
-     errors += e.line + '. ' + e.message + '\n';
-    }
-   } else {
-    try {
-     var fieldElem = ad.textFrames.getByName(fieldName);
-
-     switch (fieldName) {
-      case '__pr-stamp__printSide__':
-       fieldElem.contents = blankField;
-       if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
-       if (o.printSideDn !== undefined) fieldElem.contents = 'Обратная';
-       /*       if (o.printSideUp === undefined) {
-               fieldElem.contents = 'Прямая';
-              } else if (o.printSideDn) {
-               fieldElem.contents = 'Обратная';
-              } else {
-               fieldElem.contents = blankField;
-              }*/
-       break;
-      case '__pr-stamp__filmComposition__':
-       var filmPrint = '',
-        filmCover = '',
-        filmSeparator = '';
-       if (o.filmPrint !== undefined) filmPrint = o.filmPrint;
-       if (o.filmCover !== undefined) {
-        filmCover = o.filmCover;
-        filmSeparator = '+';
-       }
-       fieldElem.contents = (filmPrint + filmSeparator + filmCover) || blankField;
-       break;
-      case '__pr-stamp__printWidth__':
-       fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
-       break;
-      case '__pr-stamp__layoutWidth__':
-       if (o.supports.match(/кресты/i)) {
-        fieldElem.contents = (o.streamWidth * o.streamsNumber + 14) || blankField;
-       } else {
-        fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
-       }
-       break;
-      default:
-       fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
-       break;
+   switch (fieldName) {
+    case '__pr-stamp__orderNumber_mainTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
      }
+     fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
+     break;
+    case '__pr-stamp__customerCompanyName_mainTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
+     break;
+    case  '__pr-stamp__orderName_mainTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -12)]) || blankField;
+     break;
+     continue;
 
-    } catch (e) {
-     errors += e.line + '. ' + e.message + '\n';
-    }
+    case  '__pr-stamp__orderNumber_txtTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
+     break;
+    case  '__pr-stamp__customerCompanyName_txtTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
+     break;
+    case  '__pr-stamp__orderName_txtTable__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -11)]) || blankField;
+     break;
+
+    case  '__pr-stamp__sensorLabelSize__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    case  '__pr-stamp__sensorLabelColor__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    case  '__pr-stamp__sensorLabelFieldColor__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+
+    case  '__pr-stamp__inkNumber__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    case   '__pr-stamp__inkChange__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+
+    case  '__pr-stamp__icmProfile__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    case  '__pr-stamp__printSide__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = blankField;
+     if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
+     if (o.printSideDn !== undefined) fieldElem.contents = 'Обратная';
+     break;
+    case  '__pr-stamp__filmComposition__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     var filmPrint     = '',
+         filmCover     = '',
+         filmSeparator = '';
+     if (o.filmPrint !== undefined) filmPrint = o.filmPrint;
+     if (o.filmCover !== undefined) {
+      filmCover = o.filmCover;
+      filmSeparator = '+';
+     }
+     fieldElem.contents = (filmPrint + filmSeparator + filmCover) || blankField;
+     break;
+
+    case  '__pr-stamp__formCylinder__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    case  '__pr-stamp__printWidth__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+     break;
+    case  '__pr-stamp__layoutWidth__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     if (o.supports !== undefined) {
+      fieldElem.contents = (o.streamWidth * o.streamsNumber + 14) || blankField;
+     } else {
+      fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+     }
+     break;
+
+    case  '__pr-stamp__windingSchema__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+     break;
+    default:
+     break;
+   }
+  }
+
+  function __getStreamNames(arr) {
+   var arr2 = [];
+   for (var i = 0; i < arr.length; i++) {
+    if (!arr[i]) continue;
+    arr2.push(arr[i]);
+   }
+   return arr2.join(' + ');
+  }
+
+  /* for (var i = 0; i <= stampFieldNames.length; i++) {
+   var fieldName = stampFieldNames[i];
+
+   if (fieldName.match('mainTable')) {
+   try {
+   var fieldElem = ad.textFrames.getByName(fieldName);
+   if(fieldName.match('orderName')) {
+   fieldElem.contents = o[fieldName.slice(12, -12)].join('___') || blankField;
+   alert(o[fieldName.slice(12, -12)].join('___'));
+   } else {
+   fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
    }
 
-  }
+   } catch (e) {
+   errors += e.line + '. ' + e.message + '\n';
+   }
+   } else if (fieldName.match('txtTable')) {
+   try {
+   var fieldElem = ad.textFrames.getByName(fieldName);
+   if(fieldName.match('orderName')) {
+   fieldElem.contents = o[fieldName.slice(12, -12)].join('___') || blankField;
+   alert(o[fieldName.slice(12, -12)].join('___'));
+   } else {
+   fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
+   }
+   } catch (e) {
+   errors += e.line + '. ' + e.message + '\n';
+   }
+   } else {
+   try {
+   var fieldElem = ad.textFrames.getByName(fieldName);
+
+   switch (fieldName) {
+   case '__pr-stamp__printSide__':
+   fieldElem.contents = blankField;
+   if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
+   if (o.printSideDn !== undefined) fieldElem.contents = 'Обратная';
+   /!*       if (o.printSideUp === undefined) {
+   fieldElem.contents = 'Прямая';
+   } else if (o.printSideDn) {
+   fieldElem.contents = 'Обратная';
+   } else {
+   fieldElem.contents = blankField;
+   }*!/
+   break;
+   case '__pr-stamp__filmComposition__':
+   var filmPrint = '',
+   filmCover = '',
+   filmSeparator = '';
+   if (o.filmPrint !== undefined) filmPrint = o.filmPrint;
+   if (o.filmCover !== undefined) {
+   filmCover = o.filmCover;
+   filmSeparator = '+';
+   }
+   fieldElem.contents = (filmPrint + filmSeparator + filmCover) || blankField;
+   break;
+   case '__pr-stamp__printWidth__':
+   fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+   break;
+   case '__pr-stamp__layoutWidth__':
+   if (o.supports.match(/кресты/i)) {
+   fieldElem.contents = (o.streamWidth * o.streamsNumber + 14) || blankField;
+   } else {
+   fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+   }
+   break;
+   default:
+   fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
+   break;
+   }
+
+   } catch (e) {
+   errors += e.line + '. ' + e.message + '\n';
+   }
+   }
+
+   }*/
   // alert(errors);
   return errors;
  }

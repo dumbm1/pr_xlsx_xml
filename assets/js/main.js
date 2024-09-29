@@ -22,6 +22,11 @@ reload_panel.addEventListener('click', () => {
  location.reload();
 });
 
+const close_panel = document.querySelector('#close_panel');
+close_panel.addEventListener('click', ()=>{
+ csInterface.closeExtension();
+})
+
 loadJSX('json2.js');
 
 try {
@@ -101,7 +106,11 @@ async function getFf(e) {
  const dataForTable = {
   customerCompanyName: workSheet.C4?.v,
   orderNumber: workSheet.C5?.v,
-  orderName: workSheet.E6?.v,
+  // orderName: workSheet.E6?.v,
+  orderName: [
+   workSheet.E6?.v,
+   workSheet.E7?.v, workSheet.E8?.v, workSheet.E9?.v, workSheet.E10?.v, workSheet.E11?.v, workSheet.E12?.v, workSheet.E13?.v, workSheet.E14?.v
+  ],
 
   printSideUp: workSheet.F23?.v,
   printSideDn: workSheet.F24?.v,
@@ -110,8 +119,9 @@ async function getFf(e) {
   rapport: workSheet.L42?.v,
   streamWidth: workSheet.L40?.v,
   streamsNumber: workSheet.D6?.v,
-  supports: workSheet.L44?.v,
+  supports: workSheet.E22?.v,
   filmWidth: workSheet.E42?.v,
+
 
   inkNumber: workSheet.E43?.v,
   inkChange: workSheet.L37?.v,
@@ -128,7 +138,7 @@ async function getFf(e) {
 
  for (let key in dataForTable) {
   let val = dataForTable[key];
-  outStr += key + ': ' + val + ' (' + typeof val  + ')\n\n';
+  outStr += key + ': ' + val + ' (' + typeof val + ')\n\n';
  }
 
  output.value = outStr /*+
