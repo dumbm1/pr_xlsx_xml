@@ -1,7 +1,7 @@
 function getXmlStr() {
 
  if (!documents.length) {
-  var errNoDocs = new Error('Где, блять, документы???!!!');
+  var errNoDocs = new Error('Нет активных документов!');
   alert(errNoDocs);
   return errNoDocs;
  }
@@ -10,7 +10,7 @@ function getXmlStr() {
  var x = new File(a + '.xml');
 
  if (!x.exists) {
-  var errNoXml = new Error('Где, блять, xml-файл???!!!');
+  var errNoXml = new Error('Не найден xml-файл!');
   alert(errNoXml);
   return errNoXml;
  }

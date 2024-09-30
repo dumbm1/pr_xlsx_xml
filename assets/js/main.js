@@ -23,7 +23,8 @@ reload_panel.addEventListener('click', () => {
 });
 
 const close_panel = document.querySelector('#close_panel');
-close_panel.addEventListener('click', ()=>{
+close_panel.addEventListener('click', (e) => {
+ if (!e.ctrlKey) return;
  csInterface.closeExtension();
 })
 
@@ -121,7 +122,6 @@ async function getFf(e) {
   streamsNumber: workSheet.D6?.v,
   supports: workSheet.E22?.v,
   filmWidth: workSheet.E42?.v,
-
 
   inkNumber: workSheet.E43?.v,
   inkChange: workSheet.L37?.v,
