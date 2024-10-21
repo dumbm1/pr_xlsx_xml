@@ -28,7 +28,16 @@ close_panel.addEventListener('click', (e) => {
  csInterface.closeExtension();
 })
 
+
+
 loadJSX('json2.js');
+
+const increase_vers = document.querySelector('#increase_vers');
+increase_vers.addEventListener('click', (e) => {
+ try {
+  csInterface.evalScript('increase_vers()', function (result) {})
+ } catch (e) {alert(e)}
+})
 
 try {
  getInkCoverage();

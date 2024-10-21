@@ -1,3 +1,4 @@
+
 function getXmlStr() {
 
  if (!documents.length) {
@@ -375,5 +376,26 @@ function setXlsxData(o) {
    }*/
   // alert(errors);
   return errors;
+ }
+}
+
+function increase_vers() {
+ var ad = activeDocument;
+ var versNumbMainStr = '__pr-stamp__versionNumber_mainTable__';
+ var versNumbTxtStr = '__pr-stamp__versionNumber_txtTable__';
+
+ try {
+  var versNumbMainFrame = ad.textFrames.getByName(versNumbMainStr);
+  var versNumbTxtFrame = ad.textFrames.getByName(versNumbTxtStr);
+  var currNumb = versNumbMainFrame.contents;
+  var changeVers = confirm('Увеличить версию?');
+  if (changeVers) {
+   var newVers = +currNumb + 1;
+   versNumbMainFrame.contents = ('' + '0' + newVers).slice(-2);
+   versNumbTxtFrame.contents = ('' + '0' + newVers).slice(-2);
+  }
+
+ } catch (e) {
+  alert(e.line + ', ' + e.message);
  }
 }
