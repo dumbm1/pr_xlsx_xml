@@ -1,4 +1,3 @@
-
 function getXmlStr() {
 
  if (!documents.length) {
@@ -235,9 +234,9 @@ function setXlsxData(o) {
      } catch (e) {
       alert(e.line + '. ' + e.message);
      }
-     var filmPrint     = '',
-         filmCover     = '',
-         filmSeparator = '';
+     var filmPrint = '',
+      filmCover = '',
+      filmSeparator = '';
      if (o.filmPrint !== undefined) filmPrint = o.filmPrint;
      if (o.filmCover !== undefined) {
       filmCover = o.filmCover;
@@ -260,7 +259,8 @@ function setXlsxData(o) {
      } catch (e) {
       alert(e.line + '. ' + e.message);
      }
-     fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+
+     fieldElem.contents = o.streamWidth * __getStreamNumb(o.streamsNumber) || blankField;
      break;
     case  '__pr-stamp__layoutWidth__':
      try {
@@ -269,7 +269,7 @@ function setXlsxData(o) {
       alert(e.line + '. ' + e.message);
      }
      if (o.supports !== undefined) {
-      fieldElem.contents = (o.streamWidth * o.streamsNumber + 14) || blankField;
+      fieldElem.contents = (o.streamWidth * __getStreamNumb(o.streamsNumber) + 14) || blankField;
      } else {
       fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
      }
@@ -295,6 +295,15 @@ function setXlsxData(o) {
     arr2.push(arr[i]);
    }
    return arr2.join(' + ');
+  }
+
+  function __getStreamNumb(arr) {
+   var streamNumb = 0;
+   for (var i = 0; i < arr.length; i++) {
+    if (!arr[i]) continue;
+    streamNumb += +arr[i];
+   }
+   return streamNumb;
   }
 
   /* for (var i = 0; i <= stampFieldNames.length; i++) {

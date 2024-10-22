@@ -28,15 +28,16 @@ close_panel.addEventListener('click', (e) => {
  csInterface.closeExtension();
 })
 
-
-
 loadJSX('json2.js');
 
 const increase_vers = document.querySelector('#increase_vers');
 increase_vers.addEventListener('click', (e) => {
  try {
-  csInterface.evalScript('increase_vers()', function (result) {})
- } catch (e) {alert(e)}
+  csInterface.evalScript('increase_vers()', function (result) {
+  })
+ } catch (e) {
+  alert(e)
+ }
 })
 
 try {
@@ -118,8 +119,8 @@ async function getFf(e) {
   orderNumber: workSheet.C5?.v,
   // orderName: workSheet.E6?.v,
   orderName: [
-   workSheet.E6?.v,
-   workSheet.E7?.v, workSheet.E8?.v, workSheet.E9?.v, workSheet.E10?.v, workSheet.E11?.v, workSheet.E12?.v, workSheet.E13?.v, workSheet.E14?.v
+   workSheet.E6?.v, workSheet.E7?.v, workSheet.E8?.v, workSheet.E9?.v, workSheet.E10?.v,
+   workSheet.E11?.v, workSheet.E12?.v, workSheet.E13?.v, workSheet.E14?.v
   ],
 
   printSideUp: workSheet.F23?.v,
@@ -128,7 +129,11 @@ async function getFf(e) {
   formCylinder: workSheet.E40?.v,
   rapport: workSheet.L42?.v,
   streamWidth: workSheet.L40?.v,
-  streamsNumber: workSheet.D6?.v,
+  // streamsNumber: workSheet.D6?.v,
+  streamsNumber: [
+   workSheet.D6?.v, workSheet.D7?.v, workSheet.D8?.v, workSheet.D9?.v, workSheet.D10?.v,
+   workSheet.D11?.v, workSheet.D12?.v, workSheet.D13?.v, workSheet.D14?.v,
+  ],
   supports: workSheet.E22?.v,
   filmWidth: workSheet.E42?.v,
 

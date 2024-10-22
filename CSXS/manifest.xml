@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="pr_xlsx_xml"
-        ExtensionBundleVersion="0.5"
+        ExtensionBundleVersion="0.6"
         ExtensionBundleName="pr_xlsx_xml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -19,7 +19,7 @@
     </Abstract>
 
     <ExtensionList>
-        <Extension Id="pr_xlsx_xml" Version="0.5"/>
+        <Extension Id="pr_xlsx_xml" Version="0.6"/>
     </ExtensionList>
 
     <ExecutionEnvironment>
@@ -52,7 +52,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>pr_xlsx_xml 0.5</Menu>
+                    <Menu>pr_xlsx_xml 0.6</Menu>
                     <Geometry>
                         <Size>
                             <Width>300</Width>
