@@ -408,3 +408,12 @@ function increase_vers() {
   alert(e.line + ', ' + e.message);
  }
 }
+
+function setProfile(profileStr){
+ try{
+  var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
+  profileFrame.contents = profileStr;
+ } catch(e){
+  alert(e.line + '. ' + e.message);
+ }
+}

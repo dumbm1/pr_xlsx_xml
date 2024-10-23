@@ -1,0 +1,21 @@
+PE w
+BOPP tr
+BOPP mt
+dn BOPP tr
+dn BOPP mt
+dn BOPP tr+w
+dn BOPP mt+w
+dn BOPP tr+me
+dn BOPP mt+me
+
+
+
+Poligrafresursy_PE_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP_tr120_X_DR_0921__C.icm
+Poligrafresursy_BOPP(mate)_tr120_X_DR_0921__C.icm
+Poligrafresursy_BOPP(rev)_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP(rev)(mate)_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP+BOPP_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP(mate)+BOPP_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP+BOPP(met)_120_X_DR_0921__C.icm
+Poligrafresursy_BOPP(mate)+BOPP(met)_120_X_DR_0921__C.icm

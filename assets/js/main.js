@@ -2,6 +2,8 @@
  * При загрузке расширения высота панели подгонятся по ВЫСОТЕ контента.
  * Ограничения по габаритам панели заданы в файле CSXS/manifest.xml
  * */
+let cssProfiles = document.getElementById('css_profiles');
+loadCSSProfiles(cssProfiles);
 
 try {
  fitPanelToContent();
@@ -46,6 +48,12 @@ try {
 } catch (e) {
  alert(e);
 }
+
+cssProfiles.addEventListener('change', (e) => {
+ let profileStr = e.target.value;
+ csInterface.evalScript('setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
+ })
+});
 
 function getXlsx() {
  const input = document.querySelector('#get_xlsx');
@@ -163,4 +171,27 @@ async function getFf(e) {
  });
 
  return dataForTable;
+}
+
+ function loadCSSProfiles(selHtmlElem) {
+ const cssProfileNames = {
+  "PE w": "Poligrafresursy_PE_120_X_DR_0921__C",
+  "BOPP tr": "Poligrafresursy_BOPP_tr120_X_DR_0921__C",
+  "BOPP mt": "Poligrafresursy_BOPP(mate)_tr120_X_DR_0921__C",
+  "dn BOPP tr": "Poligrafresursy_BOPP(rev)_120_X_DR_0921__C",
+  "dn BOPP mt": "Poligrafresursy_BOPP(rev)(mate)_120_X_DR_0921__C",
+  "dn BOPP tr+w": "Poligrafresursy_BOPP+BOPP_120_X_DR_0921__C",
+  "dn BOPP mt+w": "Poligrafresursy_BOPP(mate)+BOPP_120_X_DR_0921__C",
+  "dn BOPP tr+me": "Poligrafresursy_BOPP+BOPP(met)_120_X_DR_0921__C",
+  "dn BOPP mt+me": "Poligrafresursy_BOPP(mate)+BOPP(met)_120_X_DR_0921__C",
+ }
+ // let selHtmlElem = document.createElement('select');
+ // selHtmlElem.id = 'css_profiles';
+ for (let key in cssProfileNames) {
+  let optHtmlElem = document.createElement('option');
+  optHtmlElem.innerHTML = key;
+  optHtmlElem.value = cssProfileNames[key];
+  selHtmlElem.append(optHtmlElem);
+ }
+
 }
