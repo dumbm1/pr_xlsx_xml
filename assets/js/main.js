@@ -46,6 +46,7 @@ increase_vers.addEventListener('click', (e) => {
 try {
  getInkCoverage();
  getXlsx();
+ setInks();
 } catch (e) {
  alert(e);
 }
@@ -77,6 +78,46 @@ function getXlsx() {
  });
 }
 
+function setInks() {
+ const TOTAL_INKS = 8;
+ const setInksBtn = document.querySelector('#set_inks');
+ const output = document.querySelector("#output");
+ let inksObj = {};
+
+ setInksBtn.addEventListener('click', (e) => {
+  try {
+   csInterface.evalScript('getXmlStr();', function (result) {
+    let xmlString = result;
+
+    let xmlParser = new DOMParser();
+    let xmlDoc = xmlParser.parseFromString(xmlString, 'text/xml');
+
+    let inks = xmlDoc.getElementsByTagName("Ink");
+
+    for (let i = 0; i < TOTAL_INKS; i++) {
+     if (inks[i]) {
+      let currInk = inks[i];
+      let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
+      if (+currVal < 5) currVal = 5;
+      inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(2)];
+     } else {
+      inksObj[i] = null;
+     }
+    }
+
+    // const inksObjStingify = JSON.stringify(inksObj);
+
+    // output.innerHTML = inksObjStingify;
+
+    csInterface.evalScript('setInks(' + JSON.stringify(inksObj) + ');', function (result) {})
+
+   });
+  } catch (e) {
+   return ('Error in setInks(). ' + e);
+  }
+ });
+}
+
 function getInkCoverage() {
  const inkCoverageBtn = document.querySelector('#ink_coverage');
  const output = document.querySelector("#output");
@@ -96,7 +137,7 @@ function getInkCoverage() {
      let currInk = inks[i];
      let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
      if (+currVal < 5) currVal = 5;
-     outputString += currInk.getAttribute('Name') + ': ' + (+currVal).toFixed(2) + '%\n';
+     outputString += currInk.getAttribute('Name') + ': ' + +(+currVal).toFixed(2) + '%\n';
     }
 
     output.value = outputString.slice(0, -1);

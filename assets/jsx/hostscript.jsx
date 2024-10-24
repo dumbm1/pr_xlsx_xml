@@ -409,11 +409,49 @@ function increase_vers() {
  }
 }
 
-function setProfile(profileStr){
- try{
+function setProfile(profileStr) {
+ try {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
   profileFrame.contents = profileStr;
- } catch(e){
+ } catch (e) {
   alert(e.line + '. ' + e.message);
+ }
+}
+
+function setInks(inksObj) {
+ var TOTAL_INKS = 8;
+ var ad = activeDocument;
+ try {
+  var prTableInks = ad.groupItems.getByName('__pr-stamp__inks__');
+  for (var i = 0; i < TOTAL_INKS; i++) {
+   var prTableInkGr = prTableInks.groupItems[i];
+   var currInkData = inksObj[i];
+   if (currInkData !== null) {
+    __setInkGr(prTableInkGr, currInkData, i);
+   } else {
+    prTableInkGr.hidden = true;
+   }
+  }
+ } catch (e) {
+  alert(e.line + '. ' + e.message);
+  return;
+ }
+
+ function __setInkGr(gr, inkData, i) {
+  try {
+   var inkName = gr.pageItems.getByName('__ink-name__'),
+    inkColor = gr.pageItems.getByName('__ink-color__'),
+    inkPercent = gr.pageItems.getByName('__ink-percent__'),
+    inkLpi = gr.pageItems.getByName('__ink-lpi__'),
+    inkAngle = gr.pageItems.getByName('__ink-angle__'),
+    inkNumber = gr.pageItems.getByName('__ink-number__');
+   inkName.contents = inkData[0];
+   inkPercent.contents = inkData[1];
+   inkNumber.contents = i + 1;
+
+  } catch (e) {
+   // alert (e.line + '. ' + e.message);
+   // return;
+  }
  }
 }
