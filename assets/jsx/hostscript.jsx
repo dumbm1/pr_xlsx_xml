@@ -427,6 +427,7 @@ function setInks(inksObj) {
    var prTableInkGr = prTableInks.groupItems[i];
    var currInkData = inksObj[i];
    if (currInkData !== null) {
+    prTableInkGr.hidden = false;
     __setInkGr(prTableInkGr, currInkData, i);
    } else {
     prTableInkGr.hidden = true;
@@ -448,10 +449,39 @@ function setInks(inksObj) {
    inkName.contents = inkData[0];
    inkPercent.contents = inkData[1];
    inkNumber.contents = i + 1;
-
+__setInkColor(inkColor, inkName, inkData);
   } catch (e) {
-   // alert (e.line + '. ' + e.message);
+   alert (e.line + '. ' + e.message);
    // return;
+  }
+
+  function __setInkColor(inkColor, inkName, inkData) {
+   if (inkData[0].match('Process') && !inkData[0].match('PANTONE')) {
+    var cmykColor = new CMYKColor();
+    switch (inkData[0]) {
+     case 'Process Cyan':
+      cmykColor.cyan = 100;
+      inkColor.fillColor = cmykColor;
+      break;
+     case 'Process Magenta':
+      cmykColor.magenta = 100;
+      inkColor.fillColor = cmykColor;
+      break;
+     case 'Process Yellow':
+      cmykColor.yellow = 100;
+      inkColor.fillColor = cmykColor;
+      break;
+     case 'Process Black':
+      cmykColor.black = 100;
+      inkColor.fillColor = cmykColor;
+      break;
+     default:
+      throw new Error('Покраска квадратика в процесс-цвета: что-то пошло не так :_(');
+    }
+   } else {
+    var col = activeDocument.swatches.getByName(inkData[0]);
+    inkColor.fillColor = col.color;
+   }
   }
  }
 }

@@ -99,7 +99,7 @@ function setInks() {
       let currInk = inks[i];
       let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
       if (+currVal < 5) currVal = 5;
-      inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(2)];
+      inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(1)];
      } else {
       inksObj[i] = null;
      }
@@ -137,7 +137,7 @@ function getInkCoverage() {
      let currInk = inks[i];
      let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
      if (+currVal < 5) currVal = 5;
-     outputString += currInk.getAttribute('Name') + ': ' + +(+currVal).toFixed(2) + '%\n';
+     outputString += currInk.getAttribute('Name') + ': ' + +(+currVal).toFixed(1) + '%\n';
     }
 
     output.value = outputString.slice(0, -1);
