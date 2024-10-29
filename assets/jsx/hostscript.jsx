@@ -42,7 +42,7 @@ function setXlsxData(o) {
   '__pr-stamp__inkNumber__',
   '__pr-stamp__inkChange__',
 
-  '__pr-stamp__icmProfile__',
+  // '__pr-stamp__icmProfile__', // профайл выбирается из списка вручную
   '__pr-stamp__printSide__',
   '__pr-stamp__filmComposition__',
 
@@ -209,15 +209,15 @@ function setXlsxData(o) {
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
-
-    case  '__pr-stamp__icmProfile__':
+    /** // профайл выбирается вручную из выпадающего списка
+     case  '__pr-stamp__icmProfile__':
      try {
-      var fieldElem = ad.textFrames.getByName(fieldName);
+     var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+     alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
-     break;
+     break;*/
     case  '__pr-stamp__printSide__':
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
@@ -449,9 +449,9 @@ function setInks(inksObj) {
    inkName.contents = inkData[0];
    inkPercent.contents = inkData[1];
    inkNumber.contents = i + 1;
-__setInkColor(inkColor, inkName, inkData);
+   __setInkColor(inkColor, inkName, inkData);
   } catch (e) {
-   alert (e.line + '. ' + e.message);
+   alert(e.line + '. ' + e.message);
    // return;
   }
 

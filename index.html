@@ -14,28 +14,35 @@
    min-height: 100px;
    background-color: lightgoldenrodyellow;
   }
+
+  .text-white-test {
+   color: greenyellow;
+   font-weight: bold;
+   display: block;
+  }
  </style>
 </head>
 <body>
 
-<input id="get_xlsx" type="file" accept=".xlsx">
+<input id="get_xlsx" type="file" accept=".xlsx" class="text-white-test">
 <button id="ink_coverage">Ink Coverage (%)</button>
 <button id="increase_vers">Vers++</button>
+<button id="set_inks">Set Inks</button>
+<div>
+ <label for="css_profiles" class="text-white-test">css profiles</label>
+ <select name="cssProfiles" id="css_profiles">
+  <option>Choose CSS profile</option>
+ </select>
+</div>
+<div>
+ <label for="repro_profiles" class="text-white-test">repro profiles</label>
+ <select name="reproProfiles" id="repro_profiles">
+  <option>Choose ReproPark profile</option>
+ </select>
+</div>
 <!--			<button id="test">test</button>-->
 <button id="reload_panel">Reload</button>
 <button id="close_panel" style="opacity: .5">Close</button>
-<div>
- <label for="css_profiles">css profiles</label>
- <select name="cssProfiles" id="css_profiles"></select>
-</div>
-<div>
- <label for="repro_profiles">repro profiles</label>
- <select name="reproProfiles" id="repro_profiles"></select>
-</div>
-<button id="set_inks">Set Inks</button>
-
-
-
 <textarea id="output" class="output">***</textarea>
 
 <script src="assets/js/CSInterface.js"></script>
