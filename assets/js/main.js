@@ -43,6 +43,17 @@ increase_vers.addEventListener('click', (e) => {
  }
 })
 
+const prepress = document.querySelector('#prepress');
+prepress.addEventListener('click', (e) => {
+ try {
+  let prepresser = e.target.value;
+  csInterface.evalScript('setPrepresser(' + JSON.stringify(prepresser) + ')', function (result) {
+  })
+ } catch (e) {
+  alert(e)
+ }
+})
+
 try {
  getInkCoverage();
  getXlsx();

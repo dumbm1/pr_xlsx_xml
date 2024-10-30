@@ -485,3 +485,12 @@ function setInks(inksObj) {
   }
  }
 }
+
+function setPrepresser(name) {
+ try {
+  var prepresser = activeDocument.textFrames.getByName('__pr-stamp__prepresser__');
+  prepresser.contents = name;
+ } catch (e) {
+  alert(e.line + '. ' + e.message);
+ }
+}
