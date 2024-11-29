@@ -100,6 +100,8 @@ function setInks() {
    csInterface.evalScript('getXmlStr();', function (result) {
     let xmlString = result;
 
+    if (xmlString.match('Не найден xml-файл')) return;
+
     let xmlParser = new DOMParser();
     let xmlDoc = xmlParser.parseFromString(xmlString, 'text/xml');
 
@@ -120,7 +122,8 @@ function setInks() {
 
     // output.innerHTML = inksObjStingify;
 
-    csInterface.evalScript('setInks(' + JSON.stringify(inksObj) + ');', function (result) {})
+    csInterface.evalScript('setInks(' + JSON.stringify(inksObj) + ');', function (result) {
+    })
 
    });
   } catch (e) {

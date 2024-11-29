@@ -391,12 +391,12 @@ function setXlsxData(o) {
 function increase_vers() {
  var ad = activeDocument;
 
- var versElNames= ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
- for(var i = 0; i < versElNames.length; i++) {
+ var versElNames = ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
+ for (var i = 0; i < versElNames.length; i++) {
   __increase(versElNames[i]);
  }
 
- function __increase(elName){
+ function __increase(elName) {
   try {
    var versTextFrame = ad.textFrames.getByName(elName);
    var currNumb = versTextFrame.contents;
@@ -423,16 +423,19 @@ function setProfile(profileStr) {
 function setInks(inksObj) {
  var TOTAL_INKS = 8;
  var ad = activeDocument;
+ var prTableInks;
+
  try {
-  var prTableInks = ad.groupItems.getByName('__pr-stamp__inks__');
+  prTableInks = ad.groupItems.getByName('__pr-stamp__inks__');
+
   for (var i = 0; i < TOTAL_INKS; i++) {
    var prTableInkGr = prTableInks.groupItems[i];
    var currInkData = inksObj[i];
    if (currInkData !== null) {
-    prTableInkGr.hidden = false;
+    prTableInkGr.opacity = 100;
     __setInkGr(prTableInkGr, currInkData, i);
    } else {
-    prTableInkGr.hidden = true;
+    prTableInkGr.opacity = 0;
    }
   }
  } catch (e) {
