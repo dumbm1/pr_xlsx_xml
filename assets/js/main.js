@@ -44,7 +44,7 @@ increase_vers.addEventListener('click', (e) => {
 })
 
 const prepress = document.querySelector('#prepress');
-prepress.addEventListener('click', (e) => {
+prepress.addEventListener('change', (e) => {
  try {
   let prepresser = e.target.value;
   csInterface.evalScript('setPrepresser(' + JSON.stringify(prepresser) + ')', function (result) {
