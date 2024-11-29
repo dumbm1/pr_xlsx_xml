@@ -390,22 +390,24 @@ function setXlsxData(o) {
 
 function increase_vers() {
  var ad = activeDocument;
- var versNumbMainStr = '__pr-stamp__versionNumber_mainTable__';
- var versNumbTxtStr = '__pr-stamp__versionNumber_txtTable__';
 
- try {
-  var versNumbMainFrame = ad.textFrames.getByName(versNumbMainStr);
-  var versNumbTxtFrame = ad.textFrames.getByName(versNumbTxtStr);
-  var currNumb = versNumbMainFrame.contents;
-  var changeVers = confirm('Увеличить версию?');
-  if (changeVers) {
-   var newVers = +currNumb + 1;
-   versNumbMainFrame.contents = ('' + '0' + newVers).slice(-2);
-   versNumbTxtFrame.contents = ('' + '0' + newVers).slice(-2);
+ var versElNames= ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
+ for(var i = 0; i < versElNames.length; i++) {
+  __increase(versElNames[i]);
+ }
+
+ function __increase(elName){
+  try {
+   var versTextFrame = ad.textFrames.getByName(elName);
+   var currNumb = versTextFrame.contents;
+   var changeVers = confirm('Увеличить версию?');
+   if (changeVers) {
+    var newVers = +currNumb + 1;
+    versTextFrame.contents = ('' + '0' + newVers).slice(-2);
+   }
+  } catch (e) {
+   throw new Error(e.line + ', ' + e.message);
   }
-
- } catch (e) {
-  alert(e.line + ', ' + e.message);
  }
 }
 
