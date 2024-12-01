@@ -2,13 +2,13 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="pr_xlsx_xml"
-        ExtensionBundleVersion="0.13"
+        ExtensionBundleVersion="0.14"
         ExtensionBundleName="pr_xlsx_xml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
-        <![CDATA[Sergey Inozemtsev]]>
+        <![CDATA[Marat Shagiev]]>
     </Author>
-    <Contact mailto="sinozemez@gmail.com">
+    <Contact mailto="m_js@bk.ru">
         <![CDATA[]]>
     </Contact>
     <Legal>
@@ -19,7 +19,7 @@
     </Abstract>
 
     <ExtensionList>
-        <Extension Id="pr_xlsx_xml" Version="0.13"/>
+        <Extension Id="pr_xlsx_xml" Version="0.14"/>
     </ExtensionList>
 
     <ExecutionEnvironment>
@@ -52,7 +52,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>pr_xlsx_xml 0.13</Menu>
+                    <Menu>pr_xlsx_xml 0.14</Menu>
                     <Geometry>
                         <Size>
                             <Width>300</Width>
