@@ -39,7 +39,7 @@ increase_vers.addEventListener('click', (e) => {
   csInterface.evalScript('increase_vers()', function (result) {
   })
  } catch (e) {
-  alert(e)
+  // alert(e)
  }
 })
 
@@ -50,7 +50,7 @@ prepress.addEventListener('change', (e) => {
   csInterface.evalScript('setPrepresser(' + JSON.stringify(prepresser) + ')', function (result) {
   })
  } catch (e) {
-  alert(e)
+  // alert(e)
  }
 })
 
@@ -59,7 +59,7 @@ try {
  getXlsx();
  setInks();
 } catch (e) {
- alert(e);
+ // alert(e);
 }
 
 cssProfiles.addEventListener('change', (e) => {

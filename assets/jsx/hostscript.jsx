@@ -121,7 +121,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
      break;
@@ -129,7 +129,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
      break;
@@ -137,7 +137,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -12)]) || blankField;
      break;
@@ -147,7 +147,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
      break;
@@ -155,7 +155,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
      break;
@@ -163,7 +163,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -11)]) || blankField;
      break;
@@ -172,7 +172,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -180,7 +180,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -188,7 +188,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -197,7 +197,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -205,7 +205,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -222,7 +222,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = blankField;
      if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
@@ -232,7 +232,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      var filmPrint = '',
       filmCover = '',
@@ -249,7 +249,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -257,7 +257,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
 
      fieldElem.contents = o.streamWidth * __getStreamNumb(o.streamsNumber) || blankField;
@@ -266,7 +266,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      if (o.supports !== undefined) {
       fieldElem.contents = (o.streamWidth * __getStreamNumb(o.streamsNumber) + 14) || blankField;
@@ -279,7 +279,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      alert(e.line + '. ' + e.message);
+      // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -416,7 +416,7 @@ function setProfile(profileStr) {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
   profileFrame.contents = profileStr;
  } catch (e) {
-  alert(e.line + '. ' + e.message);
+  // alert(e.line + '. ' + e.message);
  }
 }
 
@@ -439,7 +439,7 @@ function setInks(inksObj) {
    }
   }
  } catch (e) {
-  alert(e.line + '. ' + e.message);
+  // alert(e.line + '. ' + e.message);
   return;
  }
 
@@ -456,7 +456,7 @@ function setInks(inksObj) {
    inkNumber.contents = i + 1;
    __setInkColor(inkColor, inkName, inkData);
   } catch (e) {
-   alert(e.line + '. ' + e.message);
+   // alert(e.line + '. ' + e.message);
    // return;
   }
 
@@ -496,6 +496,6 @@ function setPrepresser(name) {
   var prepresser = activeDocument.textFrames.getByName('__pr-stamp__prepresser__');
   prepresser.contents = name;
  } catch (e) {
-  alert(e.line + '. ' + e.message);
+  // alert(e.line + '. ' + e.message);
  }
 }
