@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="pr_xlsx_xml"
-        ExtensionBundleVersion="0.15"
+        ExtensionBundleVersion="0.2"
         ExtensionBundleName="Poligrafresursy inf-tab from xlsx and xml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -19,7 +19,7 @@
     </Abstract>
 
     <ExtensionList>
-        <Extension Id="pr_xlsx_xml.panel" Version="0.15"/>
+        <Extension Id="pr_xlsx_xml.panel" Version="0.2"/>
     </ExtensionList>
 
     <ExecutionEnvironment>
@@ -52,7 +52,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>pr_xlsx_xml 0.15</Menu>
+                    <Menu>pr_xlsx_xml 0.2</Menu>
                     <Geometry>
                         <Size>
                             <Width>300</Width>

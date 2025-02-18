@@ -111,8 +111,11 @@ function setInks() {
      if (inks[i]) {
       let currInk = inks[i];
       let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
-      if (+currVal < 5) currVal = 5;
-      inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(1)];
+       /*
+       if (+currVal < 5) currVal = 5;
+       inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(1)];
+       */
+      inksObj[i] = [currInk.getAttribute('Name'), Math.ceil(+currVal)];
      } else {
       inksObj[i] = null;
      }
