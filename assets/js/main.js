@@ -153,8 +153,9 @@ function getInkCoverage() {
     for (let i = 0; i < inks.length; i++) {
      let currInk = inks[i];
      let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
-     if (+currVal < 5) currVal = 5;
-     outputString += currInk.getAttribute('Name') + ': ' + +(+currVal).toFixed(1) + '%\n';
+     // if (+currVal < 5) currVal = 5;
+     // outputString += currInk.getAttribute('Name') + ': ' + +(+currVal).toFixed(1) + '%\n';
+     outputString += currInk.getAttribute('Name') + ': ' + Math.ceil(+currVal) + '%\n';
     }
 
     output.value = outputString.slice(0, -1);
