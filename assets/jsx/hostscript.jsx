@@ -451,7 +451,7 @@ function setInks(inksObj) {
     inkLpi = gr.pageItems.getByName('__ink-lpi__'),
     inkAngle = gr.pageItems.getByName('__ink-angle__'),
     inkNumber = gr.pageItems.getByName('__ink-number__');
-   inkName.contents = inkData[0];
+   inkName.contents = inkData[0].replace(/( C$)|(Process )/g, '');
    inkPercent.contents = inkData[1];
    inkNumber.contents = i + 1;
    __setInkColor(inkColor, inkName, inkData);
