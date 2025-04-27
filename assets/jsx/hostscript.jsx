@@ -392,19 +392,23 @@ function increase_vers() {
  var ad = activeDocument;
 
  var versElNames = ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
- for (var i = 0; i < versElNames.length; i++) {
-  __increase(versElNames[i]);
+ var changeVers = confirm('Увеличить версию?');
+ if(changeVers){
+  for (var i = 0; i < versElNames.length; i++) {
+   __increase(versElNames[i]);
+  }
  }
+
 
  function __increase(elName) {
   try {
    var versTextFrame = ad.textFrames.getByName(elName);
+
    var currNumb = versTextFrame.contents;
-   var changeVers = confirm('Увеличить версию?');
-   if (changeVers) {
+   if (currNumb == '—') currNumb = '00';
+
     var newVers = +currNumb + 1;
     versTextFrame.contents = ('' + '0' + newVers).slice(-2);
-   }
   } catch (e) {
    throw new Error(e.line + ', ' + e.message);
   }
@@ -451,7 +455,12 @@ function setInks(inksObj) {
     inkLpi = gr.pageItems.getByName('__ink-lpi__'),
     inkAngle = gr.pageItems.getByName('__ink-angle__'),
     inkNumber = gr.pageItems.getByName('__ink-number__');
-   inkName.contents = inkData[0].replace(/( C$)|(Process )/g, '');
+   if (inkData[0] == 'PANTONE Process Blue C') {
+    inkName.contents = 'PANTONE Process Blue';
+   } else {
+    inkName.contents = inkData[0].replace(/( C$)|(Process )/g, '');
+   }
+
    inkPercent.contents = inkData[1];
    inkNumber.contents = i + 1;
    __setInkColor(inkColor, inkName, inkData);
