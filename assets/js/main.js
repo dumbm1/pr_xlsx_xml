@@ -33,13 +33,26 @@ close_panel.addEventListener('click', (e) => {
 
 loadJSX('json2.js');
 
-const increase_vers = document.querySelector('#increase_vers');
-increase_vers.addEventListener('click', (e) => {
+const change_vers = document.querySelector('#change_vers');
+change_vers.addEventListener('focus', (e) => {
  try {
-  csInterface.evalScript('increase_vers()', function (result) {
+  csInterface.evalScript(getVers.toString() + '; getVers()', function (result) {
+   if (!result) return;
+   e.target.value = +result;
   })
  } catch (e) {
-  // alert(e)
+  alert('getVers Error\n' + e);
+ }
+})
+change_vers.addEventListener('change', (e) => {
+ try {
+  var currNumber = e.target.value;
+  csInterface.evalScript(
+   changeVers.toString() + '; changeVers(' + JSON.stringify(currNumber) + ')',
+   function (result) {
+   })
+ } catch (e) {
+  alert('changeVers Error\n' + e);
  }
 })
 
@@ -111,10 +124,10 @@ function setInks() {
      if (inks[i]) {
       let currInk = inks[i];
       let currVal = currInk.getElementsByTagName('CoveragePerc')[0].getAttribute('Value');
-       /*
-       if (+currVal < 5) currVal = 5;
-       inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(1)];
-       */
+      /*
+      if (+currVal < 5) currVal = 5;
+      inksObj[i] = [currInk.getAttribute('Name'), +(+currVal).toFixed(1)];
+      */
       inksObj[i] = [currInk.getAttribute('Name'), Math.ceil(+currVal)];
      } else {
       inksObj[i] = null;
@@ -334,4 +347,46 @@ function loadCSSProfiles(cssSelHtmlElem, reproSelHtmlElem) {
   reproSelHtmlElem.append(optGr);
  }
 
+}
+
+/**
+ * Extend Script
+ * */
+
+function getVers() {
+ var ad = activeDocument;
+ var versElNames = ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
+ for (var i = 0; i < versElNames.length; i++) {
+  try {
+   var currVersFrame = ad.textFrames.getByName(versElNames[i]);
+   return currVersFrame.contents;
+  } catch (e) {
+   throw new Error('getVers Error' + ', ' + e.message);
+  }
+ }
+}
+
+function changeVers(num) {
+ var ad = activeDocument;
+ var num = +num;
+
+ var versElNames = ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
+ for (var i = 0; i < versElNames.length; i++) {
+  _change(versElNames[i], num);
+ }
+
+ function _change(elName, num) {
+  try {
+   var versTextFrame = ad.textFrames.getByName(elName);
+
+   var currNumb = versTextFrame.contents;
+   // if (currNumb == '—') currNumb = '00';
+   if (+currNumb < 0) currNumb = '00';
+
+   var newVers = num;
+   versTextFrame.contents = ('' + '0' + newVers).slice(-2);
+  } catch (e) {
+   throw new Error(e.line + ', ' + e.message);
+  }
+ }
 }

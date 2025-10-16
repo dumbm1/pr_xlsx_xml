@@ -7,7 +7,7 @@
  transition: transform 200ms ease-in-out;
  border: 1px solid var(--border-primary);
  border-radius: .2rem;
- padding: 0 1.4rem;
+ padding: 0 .4rem;
  box-sizing: border-box;
 }
 

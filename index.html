@@ -16,7 +16,7 @@
   }
 
   .text-white-test {
-   color: greenyellow;
+   color: darkslategrey;
    font-weight: bold;
    display: block;
   }
@@ -25,9 +25,13 @@
 <body>
 
 <input id="get_xlsx" type="file" accept=".xlsx" class="text-white-test">
-<button id="ink_coverage">Ink Coverage (%)</button>
-<button id="increase_vers">Vers++</button>
-<button id="set_inks">Set Inks</button>
+<button class="button" id="ink_coverage">Ink Coverage</button>
+<button class="button" id="set_inks">Set Inks</button>
+
+<div class="number" id="vers">
+ <label> Версия</label>
+ <input class="number_input" id="change_vers" type="number" min="0", step="1" placeholder="0">
+</div>
 <div>
  <label for="css_profiles" class="text-white-test">css profiles</label>
  <select name="cssProfiles" id="css_profiles">

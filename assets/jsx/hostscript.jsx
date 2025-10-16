@@ -392,7 +392,7 @@ function increase_vers() {
  var ad = activeDocument;
 
  var versElNames = ['__pr-stamp__versionNumber_mainTable__', '__pr-stamp__versionNumber_txtTable__'];
- var changeVers = confirm('Увеличить версию?');
+ // var changeVers = confirm('Увеличить версию?');
  if(changeVers){
   for (var i = 0; i < versElNames.length; i++) {
    __increase(versElNames[i]);
