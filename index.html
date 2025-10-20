@@ -32,22 +32,32 @@
  <label> Версия</label>
  <input class="number_input" id="change_vers" type="number" min="0", step="1" placeholder="0">
 </div>
+
 <div>
- <label for="css_profiles" class="text-white-test">css profiles</label>
- <select name="cssProfiles" id="css_profiles">
-  <option>Choose CSS profile</option>
- </select>
+ <div>
+  <label for="css_profiles" class="text-white-test">Профили КСС</label>
+  <select name="cssProfiles" id="css_profiles">
+   <option>КСС</option>
+  </select>
+ </div>
+ <div>
+  <label for="repro_profiles_2023" class="text-white-test">Профили Репро 2023</label>
+  <select name="reproProfiles2023" id="repro_profiles_2023">
+   <option>РепроПарк</option>
+  </select>
+ </div>
+ <div>
+  <label for="repro_profiles_2025" class="text-white-test">Профили Репро 2025</label>
+  <select name="reproProfiles2025" id="repro_profiles_2025">
+   <option>РепроПарк</option>
+  </select>
+ </div>
 </div>
+
 <div>
- <label for="repro_profiles" class="text-white-test">repro profiles</label>
- <select name="reproProfiles" id="repro_profiles">
-  <option>Choose ReproPark profile</option>
- </select>
-</div>
-<div>
- <label for="repro_profiles" class="text-white-test">prepress</label>
- <select name="reproProfiles" id="prepress">
-  <option>Choose prepress engineer</option>
+ <label for="prepress" class="text-white-test">Инженер допечатной подготовки</label>
+ <select name="prepress" id="prepress">
+  <option>-</option>
   <option>Данильченко Д.</option>
   <option>Какареко Е.</option>
   <option>Савчук О.</option>
@@ -55,7 +65,7 @@
  </select>
 </div>
 <div>
- <button id="paste_inf_tab_btn">Open ai file</button>
+ <button id="paste_inf_tab_btn">Бланк Полиграфресурсы</button>
 </div>
 <!--			<button id="test">test</button>-->
 <button id="reload_panel">Reload</button>

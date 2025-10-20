@@ -415,6 +415,7 @@ function increase_vers() {
  }
 }
 
+/*
 function setProfile(profileStr) {
  try {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
@@ -423,6 +424,7 @@ function setProfile(profileStr) {
   // alert(e.line + '. ' + e.message);
  }
 }
+*/
 
 function setInks(inksObj) {
  var TOTAL_INKS = 8;
