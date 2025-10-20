@@ -10,6 +10,7 @@
 @import "../../components/footer/footer.css";
 @import "../../components/container/container.css";
 @import "../../components/input/number.css";
+@import "../../components/input/input-file.css";
 
 
 body {

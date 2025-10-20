@@ -3,7 +3,7 @@
         Version="4.0"
         ExtensionBundleId="pr_xlsx_xml"
         ExtensionBundleVersion="0.5.1"
-        ExtensionBundleName="Poligrafresursy inf-tab from xlsx and xml"
+        ExtensionBundleName="pr_xlsx_xml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
         <![CDATA[Marat Shagiev]]>

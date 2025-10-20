@@ -6,16 +6,16 @@
  - Открыть панель расширения в Иллюстраторе
  - Открыть браузер Chrome
  - В адресной строке ввести адрес панели:
-   - http://localhost:1112
+   - http://localhost:9999
 
 Далее можно воспользоваться всеми инструментами отладчика Chrome.
 Небольшая справка по отладчику: https://learn.javascript.ru/debugging-chrome
 -->
 
 <ExtensionList>
-    <Extension Id="pr_xlsx_xml">
+    <Extension Id="pr_xlsx_xml.panel">
         <HostList>
-            <Host Name="ILST" Port="1112"/>
+            <Host Name="ILST" Port="9999"/>
         </HostList>
     </Extension>
 </ExtensionList>
