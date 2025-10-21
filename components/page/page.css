@@ -4,9 +4,9 @@
  padding: .5rem;
  position: relative;
  display: grid;
- gap: 2rem;
+ gap: .5rem;
  height: 100%;
- grid-template-rows: 1fr auto;
+ grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr   6fr; /*!!! поправить эту дичь !!!*/
 }
 
 .page__section {

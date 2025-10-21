@@ -9,68 +9,71 @@
 
  <style>
   .output {
-   width: 100%;
    height: 100%;
    min-height: 40px;
    background-color: lightgoldenrodyellow;
   }
 
   .text-white-test {
-   color: darkslategrey;
+/*   color: black;
    font-weight: bold;
-   display: block;
+   display: block;*/
   }
  </style>
 </head>
 <body>
 
-<input id="get_xlsx" type="file" accept=".xlsx" class="input-file text-white-test">
-<button class="button" id="ink_coverage">Ink Coverage</button>
-<button class="button" id="set_inks">Set Inks</button>
+<div class="page">
 
-<div class="number" id="vers">
- <label> Версия</label>
- <input class="number_input" id="change_vers" type="number" min="0", step="1" placeholder="0">
-</div>
-
-<div>
+ <input id="get_xlsx" type="file" accept=".xlsx" class="input-file text-white-test">
  <div>
-  <label for="css_profiles" class="text-white-test">Профили КСС</label>
-  <select name="cssProfiles" id="css_profiles">
-   <option>КСС</option>
+  <button class="button" id="ink_coverage">Ink Coverage</button>
+  <button class="button" id="set_inks">Set Inks</button>
+ </div>
+
+ <div class="number text-white-test" id="vers">
+  <label> Версия</label>
+  <input class="number_input" id="change_vers" type="number" min="0" , step="1" placeholder="0">
+ </div>
+
+ <div>
+  <div>
+   <label for="css_profiles" class="text-white-test">Профили КСС</label>
+   <select name="cssProfiles" id="css_profiles">
+    <option>КСС</option>
+   </select>
+  </div>
+  <div>
+   <label for="repro_profiles_2023" class="text-white-test">Профили Репро 2023</label>
+   <select name="reproProfiles2023" id="repro_profiles_2023">
+    <option>РепроПарк</option>
+   </select>
+  </div>
+  <div>
+   <label for="repro_profiles_2025" class="text-white-test">Профили Репро 2025</label>
+   <select name="reproProfiles2025" id="repro_profiles_2025">
+    <option>РепроПарк</option>
+   </select>
+  </div>
+ </div>
+
+ <div>
+  <label for="prepress" class="text-white-test">Инженер допечатной подготовки</label>
+  <select name="prepress" id="prepress">
+   <option>-</option>
+   <option>Данильченко Д.</option>
+   <option>Какареко Е.</option>
+   <option>Савчук О.</option>
+   <option>Шагиев М.</option>
   </select>
  </div>
  <div>
-  <label for="repro_profiles_2023" class="text-white-test">Профили Репро 2023</label>
-  <select name="reproProfiles2023" id="repro_profiles_2023">
-   <option>РепроПарк</option>
-  </select>
- </div>
- <div>
-  <label for="repro_profiles_2025" class="text-white-test">Профили Репро 2025</label>
-  <select name="reproProfiles2025" id="repro_profiles_2025">
-   <option>РепроПарк</option>
-  </select>
- </div>
-</div>
+  <button class="button" id="paste_inf_tab_btn">Бланк Полиграфресурсы</button>
 
-<div>
- <label for="prepress" class="text-white-test">Инженер допечатной подготовки</label>
- <select name="prepress" id="prepress">
-  <option>-</option>
-  <option>Данильченко Д.</option>
-  <option>Какареко Е.</option>
-  <option>Савчук О.</option>
-  <option>Шагиев М.</option>
- </select>
-</div>
-<div>
- <button id="paste_inf_tab_btn">Бланк Полиграфресурсы</button>
-</div>
-<!--			<button id="test">test</button>-->
-<button id="reload_panel">Reload</button>
-<button id="close_panel" style="opacity: .5">Close</button>
-<textarea id="output" class="output">***</textarea>
+ <!--			<button id="test">test</button>-->
+ <button class="button" id="reload_panel">Reload</button>
+ <button class="button" id="close_panel" style="opacity: .5">Close</button></div>
+ <textarea id="output" class="output" style="overflow: scroll">***</textarea></div>
 
 <script src="assets/js/CSInterface.js"></script>
 <script src="assets/js/newCSInterface.js"></script>
