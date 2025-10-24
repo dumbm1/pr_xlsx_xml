@@ -1,7 +1,12 @@
 .input-file {
- height: 2rem;
+ min-height: 3rem;
  border: var(--border-primary) 3px solid;
  padding: .5rem;
+ background-image: url(../../assets/img/xlsx_icon.png) ;
+ background-repeat: no-repeat;
+ background-size: contain;
+ background-position: top right;
+
 }
 
 .input-file:hover {

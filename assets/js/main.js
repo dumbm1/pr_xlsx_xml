@@ -92,7 +92,6 @@ reproProfiles2025.addEventListener('change', (e) => {
  })
 })
 
-
 /**
  * ECMA6 Script Lib
  * */
@@ -477,7 +476,7 @@ function changeVers(num) {
   _change(versElNames[i], num);
  }
 
-  function _change(elName, num) {
+ function _change(elName, num) {
   try {
    var versTextFrame = ad.textFrames.getByName(elName);
 
@@ -570,7 +569,8 @@ function setXlsxData(o) {
   '__pr-stamp__formCylinder__',
   '__pr-stamp__printWidth__',
   '__pr-stamp__layoutWidth__',
-
+  '__pr-stamp__streamWidth__',
+  '__pr-stamp__rapport__',
   '__pr-stamp__windingSchema__',
  ];
 
@@ -749,6 +749,7 @@ function setXlsxData(o) {
      if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
      if (o.printSideDn !== undefined) fieldElem.contents = 'Обратная';
      break;
+
     case  '__pr-stamp__filmComposition__':
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
@@ -774,26 +775,47 @@ function setXlsxData(o) {
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
+
     case  '__pr-stamp__printWidth__':
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
       // alert(e.line + '. ' + e.message);
      }
-
      fieldElem.contents = o.streamWidth * __getStreamNumb(o.streamsNumber) || blankField;
      break;
+
     case  '__pr-stamp__layoutWidth__':
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
       // alert(e.line + '. ' + e.message);
      }
-     if (o.supports !== undefined) {
+     if (o.supports.match(/да/i)) {
       fieldElem.contents = (o.streamWidth * __getStreamNumb(o.streamsNumber) + 14) || blankField;
+     } else if (o.supports.match(/нет/i)) {
+      fieldElem.contents = (o.streamWidth * __getStreamNumb(o.streamsNumber) + 3) || blankField;
      } else {
-      fieldElem.contents = o.streamWidth * o.streamsNumber || blankField;
+      fieldElem.contents = blankField;
      }
+     break;
+
+    case '__pr-stamp__streamWidth__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      // alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o.streamWidth || blankField;
+     break;
+
+    case '__pr-stamp__rapport__':
+     try {
+      var fieldElem = ad.textFrames.getByName(fieldName);
+     } catch (e) {
+      // alert(e.line + '. ' + e.message);
+     }
+     fieldElem.contents = o.rapport || blankField;
      break;
 
     case  '__pr-stamp__windingSchema__':
