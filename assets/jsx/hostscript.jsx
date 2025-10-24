@@ -1,4 +1,8 @@
-function getXmlStr() {
+/**
+ * all funtions movo to ESMA6-script file
+ * */
+
+/*function getXmlStr() {
 
  if (!documents.length) {
   var errNoDocs = new Error('Нет активных документов!');
@@ -209,7 +213,7 @@ function setXlsxData(o) {
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
-    /** // профайл выбирается вручную из выпадающего списка
+    /!** // профайл выбирается вручную из выпадающего списка
      case  '__pr-stamp__icmProfile__':
      try {
      var fieldElem = ad.textFrames.getByName(fieldName);
@@ -217,7 +221,7 @@ function setXlsxData(o) {
      alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
-     break;*/
+     break;*!/
     case  '__pr-stamp__printSide__':
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
@@ -306,7 +310,7 @@ function setXlsxData(o) {
    return streamNumb;
   }
 
-  /* for (var i = 0; i <= stampFieldNames.length; i++) {
+  /!* for (var i = 0; i <= stampFieldNames.length; i++) {
    var fieldName = stampFieldNames[i];
 
    if (fieldName.match('mainTable')) {
@@ -382,7 +386,7 @@ function setXlsxData(o) {
    }
    }
 
-   }*/
+   }*!/
   // alert(errors);
   return errors;
  }
@@ -415,7 +419,6 @@ function increase_vers() {
  }
 }
 
-/*
 function setProfile(profileStr) {
  try {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
@@ -424,7 +427,6 @@ function setProfile(profileStr) {
   // alert(e.line + '. ' + e.message);
  }
 }
-*/
 
 function setInks(inksObj) {
  var TOTAL_INKS = 8;
@@ -509,4 +511,4 @@ function setPrepresser(name) {
  } catch (e) {
   // alert(e.line + '. ' + e.message);
  }
-}
+}*/
