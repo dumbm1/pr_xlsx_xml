@@ -8,17 +8,17 @@
  <link rel="stylesheet" href="assets/css/main.css">
 
  <style>
-  .output {
+/*  .output {
    height: 100%;
    min-height: 40px;
    background-color: lightgoldenrodyellow;
   }
 
   .text-white-test {
-/*   color: black;
-   font-weight: bold;
-   display: block;*/
-  }
+   !*   color: black;
+      font-weight: bold;
+      display: block;*!
+  }*/
  </style>
 </head>
 <body>
@@ -70,10 +70,26 @@
  <div>
   <button class="button" id="paste_inf_tab_btn">Бланк Полиграфресурсы</button>
 
- <!--			<button id="test">test</button>-->
- <button class="button" id="reload_panel">Reload</button>
- <button class="button" id="close_panel" style="opacity: .5">Close</button></div>
- <textarea id="output" class="output" style="overflow: scroll">***</textarea></div>
+  <!--			<button id="test">test</button>-->
+  <button class="button" id="reload_panel">Reload</button>
+  <button class="button" id="close_panel" style="opacity: .5">Close</button>
+ </div>
+ <!-- <textarea id="output" class="output" style="overflow: scroll">***</textarea>-->
+ <details class="output">
+  <summary class="output__title">
+   Console output
+  </summary>
+
+  <svg id="btn_clear_output" class="button button_icon-svg output__icon_clear">
+   <use href="assets/img/icon-sprite.svg#clear-output"></use>
+  </svg>
+
+  <textarea id="output" rows="20"  class="output__field" disabled></textarea>
+
+ </details>
+</div>
+
+
 
 <script src="assets/js/CSInterface.js"></script>
 <script src="assets/js/newCSInterface.js"></script>
@@ -83,5 +99,7 @@
 <script src="assets/js/sheetJS/xlsx.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script src="assets/js/pasteInfTab.js"></script>
+
+
 </body>
 </html>

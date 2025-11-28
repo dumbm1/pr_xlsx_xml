@@ -11,6 +11,7 @@
 @import "../../components/container/container.css";
 @import "../../components/input/number.css";
 @import "../../components/input/input-file.css";
+@import "../../components/output/output.css";
 
 
 body {

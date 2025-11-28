@@ -11,6 +11,14 @@
  box-sizing: border-box;
 }
 
+.button_icon-svg {
+/* width: 1.75rem;
+ height: 1.75rem;*/
+ width: 2rem;
+ height: 2rem;
+ border: none;
+}
+
 .button:hover {
  background: var(--button-hover);
 }
