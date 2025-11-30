@@ -30,7 +30,7 @@ const close_panel = document.querySelector('#close_panel');
 close_panel.addEventListener('click', (e) => {
  if (!e.ctrlKey) return;
  csInterface.closeExtension();
-})
+});
 
 loadJSX('json2.js');
 
@@ -40,40 +40,45 @@ change_vers.addEventListener('focus', (e) => {
   csInterface.evalScript(getVers.toString() + '; getVers()', function (result) {
    if (!result) return;
    e.target.value = +result;
-  })
+  });
  } catch (e) {
   alert('getVers Error\n' + e);
  }
-})
+});
 change_vers.addEventListener('change', (e) => {
  try {
   var currNumber = e.target.value;
   csInterface.evalScript(
    changeVers.toString() + '; changeVers(' + JSON.stringify(currNumber) + ')',
    function (result) {
-   })
+   });
  } catch (e) {
   alert('changeVers Error\n' + e);
  }
-})
+});
 
 const prepress = document.querySelector('#prepress');
 prepress.addEventListener('change', (e) => {
  try {
   let prepresser = e.target.value;
   csInterface.evalScript(setPrepresser.toString() + ';setPrepresser(' + JSON.stringify(prepresser) + ')', function (result) {
-  })
+  });
  } catch (e) {
   // alert(e)
  }
-})
+});
 
 const block_output = document.querySelector('details.output');
 block_output.addEventListener('click', (e) => {
- if(e.target.id == 'btn_clear_output'){
+ if (e.target.id == 'btn_clear_output') {
   document.querySelector('.output__field').innerHTML = '';
  }
  fitPanelToContent();
+});
+
+const cutsom_upack = document.querySelector('#custom_upack');
+cutsom_upack.addEventListener('click', (e) => {
+ csInterface.evalScript(customUpack.toString() + ';customUpack()', function (result) {});
 })
 
 try {
@@ -87,18 +92,18 @@ try {
 cssProfiles.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
- })
+ });
 });
 reproProfiles2023.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
- })
-})
+ });
+});
 reproProfiles2025.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
- })
-})
+ });
+});
 
 /**
  * ECMA6 Script Lib
@@ -156,7 +161,7 @@ function setInksFromXml() {
     // output.innerHTML = inksObjStingify;
 
     csInterface.evalScript(setInks.toString() + ';setInks(' + JSON.stringify(inksObj) + ');', function (result) {
-    })
+    });
 
    });
   } catch (e) {
@@ -279,7 +284,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
   "dn BOPP mt+w": "BOPP(mate)+BOPP_120_X_DR_0921__C",
   "dn BOPP tr+me": "BOPP+BOPP(met)_120_X_DR_0921__C",
   "dn BOPP mt+me": "BOPP(mate)+BOPP(met)_120_X_DR_0921__C",
- }
+ };
  const reproProfileNames2023 = {
   "Ламинат. Обратная": {
    "60 BOPP мат + BOPP ме + белила 105": "383_060_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023",
@@ -342,7 +347,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
    "95 BOPP бел + BOPP мат 105": "383_095_F105.SSF114.HD.C_BOPPw.N.BOPPmt_Std7_09.2023",
   },
 
- }
+ };
 
  const reproProfileNames2025 = {
   "Ламинат. Обратная": {
@@ -413,7 +418,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
    "144 BOPPperl + BOPPmt 105": "144_F105.SSF114.HD.C_BOPPperl.N.BOPPmt_Std8_06.25",
   },
 
- }
+ };
 
  for (let key in cssProfileNames) {
   let optHtmlElem = document.createElement('option');
