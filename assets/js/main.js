@@ -78,8 +78,9 @@ block_output.addEventListener('click', (e) => {
 
 const cutsom_upack = document.querySelector('#custom_upack');
 cutsom_upack.addEventListener('click', (e) => {
- csInterface.evalScript(customUpack.toString() + ';customUpack()', function (result) {});
-})
+ csInterface.evalScript(customUpack.toString() + ';customUpack()', function (result) {
+ });
+});
 
 try {
  getInkCoverage();
@@ -275,147 +276,147 @@ async function getFf(e) {
 
 function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem) {
  const cssProfileNames = {
-  "PE w": "PE_120_X_DR_0921__C",
-  "BOPP tr": "BOPP_tr120_X_DR_0921__C",
-  "BOPP mt": "BOPP(mate)_tr120_X_DR_0921__C",
-  "dn BOPP tr": "BOPP(rev)_120_X_DR_0921__C",
-  "dn BOPP mt": "BOPP(rev)(mate)_120_X_DR_0921__C",
-  "dn BOPP tr+w": "BOPP+BOPP_120_X_DR_0921__C",
-  "dn BOPP mt+w": "BOPP(mate)+BOPP_120_X_DR_0921__C",
-  "dn BOPP tr+me": "BOPP+BOPP(met)_120_X_DR_0921__C",
-  "dn BOPP mt+me": "BOPP(mate)+BOPP(met)_120_X_DR_0921__C",
+  "PE w": "PE_120_X_DR_0921__C.icm",
+  "BOPP tr": "BOPP_tr120_X_DR_0921__C.icm",
+  "BOPP mt": "BOPP(mate)_tr120_X_DR_0921__C.icm",
+  "dn BOPP tr": "BOPP(rev)_120_X_DR_0921__C.icm",
+  "dn BOPP mt": "BOPP(rev)(mate)_120_X_DR_0921__C.icm",
+  "dn BOPP tr+w": "BOPP+BOPP_120_X_DR_0921__C.icm",
+  "dn BOPP mt+w": "BOPP(mate)+BOPP_120_X_DR_0921__C.icm",
+  "dn BOPP tr+me": "BOPP+BOPP(met)_120_X_DR_0921__C.icm",
+  "dn BOPP mt+me": "BOPP(mate)+BOPP(met)_120_X_DR_0921__C.icm",
  };
  const reproProfileNames2023 = {
   "Ламинат. Обратная": {
-   "60 BOPP мат + BOPP ме + белила 105": "383_060_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023",
-   "61 BOPP мат + BOPP ме + белила 129": "383_061_B129.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023",
-   "62 PET пр + BOPP ме + белила 129": "383_062_B129.SSF114.HD.C_PETtr.W.BOPPme_Std7_09.2023",
-   "63 PET пр + BOPP ме + белила 105": "383_063_B105.SSF114.HD.C_PETtr.W.BOPPme_Std7_09.2023",
-   "64 PET пр + BOPP пр + белила 129": "383_064_B129.SSF114.HD.C_PETtr.W.BOPPtr_Std7_09.2023",
-   "65 PET пр + BOPP пр + белила 105": "383_065_B105.SSF114.HD.C_PETtr.W.BOPPtr_Std7_09.2023",
-   "66 PET пр + PE пр + белила 129": "383_066_B129.SSF114.HD.C_PETtr.W.LDPEtr_Std7_09.2023",
-   "67 PET пр + PE пр + белила 105": "383_067_B105.SSF114.HD.C_PETtr.W.LDPEtr_Std7_09.2023",
-   "68 PET пр + BOPP бел 129": "383_068_B129.SSF114.HD.C_PETtr.N.BOPPw_Std7_09.2023",
-   "69 PET пр + BOPP бел 105": "383_069_B105.SSF114.HD.C_PETtr.N.BOPPw_Std7_09.2023",
-   "72 BOPP мат + BOPP бел + белила 129": "383_072_B129.SSF114.HD.C_BOPPmt.W.BOPPw_Std7_09.2023",
-   "73 BOPP мат + BOPP бел + белила 105": "383_073_B105.SSF114.HD.C_BOPPmt.W.BOPPw_Std7_09.2023",
-   "74 BOPP мат + PE пр + белила 129": "383_074_B129.SSF114.HD.C_BOPPmt.W.LDPEtr_Std7_09.2023",
-   "75 BOPP мат + PE пр + белила 105": "383_075_B105.SSF114.HD.C_BOPPmt.W.LDPEtr_Std7_09.2023",
-   "78 PET пр + BOPP жем 129": "383_078_B129.SSF114.HD.C_PETtr.N.BOPPperl_Std7_09.2023",
-   "79 PET пр + BOPP жем 105": "383_079_B105.SSF114.HD.C_PETtr.N.BOPPperl_Std7_09.2023",
-   "80 BOPP мат + BOPP жем 129": "383_080_B129.SSF114.HD.C_BOPPmt.N.BOPPperl_Std7_09.2023",
-   "81 BOPP мат + BOPP жем 105": "383_081_B105.SSF114.HD.C_BOPPmt.N.BOPPperl_Std7_09.2023",
-   "82 PET пр + BOPP бел + белила 129": "383_082_B129.SSF114.HD.C_PETtr.W.BOPPw_Std7_09.2023",
-   "83 PET пр + BOPP бел + белила 105": "383_083_B105.SSF114.HD.C_PETtr.W.BOPPw_Std7_09.2023",
-   "84 BOPP мат + BOPP бел 129": "383_084_B129.SSF114.HD.C_BOPPmt.N.BOPPw_Std7_09.2023",
-   "85 BOPP мат + BOPP бел 105": "383_085_B105.SSF114.HD.C_BOPPmt.N.BOPPw_Std7_09.2023",
-   "86 BOPP мат + PE бел 129": "383_086_B129.SSF114.HD.C_BOPPmt.N.LDPEw_Std7_09.2023",
-   "87 BOPP мат + PE бел 105": "383_087_B105.SSF114.HD.C_BOPPmt.N.LDPEw_Std7_09.2023",
-   "90 BOPP мат + BOPP пр + белила 129": "383_090_B129.SSF114.HD.C_BOPPmt.W.BOPPtr_Std7_09.2023",
-   "91 BOPP мат + BOPP пр + белила 105": "383_091_B105.SSF114.HD.C_BOPPmt.W.BOPPtr_Std7_09.2023",
-   "92 PET пр + PE бел 129": "383_092_B129.SSF114.HD.C_PETtr.N.LDPEw_Std7_09.2023",
-   "93 PET пр + PE бел 105": "383_093_B105.SSF114.HD.C_PETtr.N.LDPEw_Std7_09.2023",
+   "60 BOPP мат + BOPP ме + белила 105": "383_060_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023_StK.icc",
+   "61 BOPP мат + BOPP ме + белила 129": "383_061_B129.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023_StK.icc",
+   "62 PET пр + BOPP ме + белила 129": "383_062_B129.SSF114.HD.C_PETtr.W.BOPPme_Std7_09.2023_StK.icc",
+   "63 PET пр + BOPP ме + белила 105": "383_063_B105.SSF114.HD.C_PETtr.W.BOPPme_Std7_09.2023_StK.icc",
+   "64 PET пр + BOPP пр + белила 129": "383_064_B129.SSF114.HD.C_PETtr.W.BOPPtr_Std7_09.2023_StK.icc",
+   "65 PET пр + BOPP пр + белила 105": "383_065_B105.SSF114.HD.C_PETtr.W.BOPPtr_Std7_09.2023_StK.icc",
+   "66 PET пр + PE пр + белила 129": "383_066_B129.SSF114.HD.C_PETtr.W.LDPEtr_Std7_09.2023_StK.icc",
+   "67 PET пр + PE пр + белила 105": "383_067_B105.SSF114.HD.C_PETtr.W.LDPEtr_Std7_09.2023_StK.icc",
+   "68 PET пр + BOPP бел 129": "383_068_B129.SSF114.HD.C_PETtr.N.BOPPw_Std7_09.2023_StK.icc",
+   "69 PET пр + BOPP бел 105": "383_069_B105.SSF114.HD.C_PETtr.N.BOPPw_Std7_09.2023_StK.icc",
+   "72 BOPP мат + BOPP бел + белила 129": "383_072_B129.SSF114.HD.C_BOPPmt.W.BOPPw_Std7_09.2023_StK.icc",
+   "73 BOPP мат + BOPP бел + белила 105": "383_073_B105.SSF114.HD.C_BOPPmt.W.BOPPw_Std7_09.2023_StK.icc",
+   "74 BOPP мат + PE пр + белила 129": "383_074_B129.SSF114.HD.C_BOPPmt.W.LDPEtr_Std7_09.2023_StK.icc",
+   "75 BOPP мат + PE пр + белила 105": "383_075_B105.SSF114.HD.C_BOPPmt.W.LDPEtr_Std7_09.2023_StK.icc",
+   "78 PET пр + BOPP жем 129": "383_078_B129.SSF114.HD.C_PETtr.N.BOPPperl_Std7_09.2023_StK.icc",
+   "79 PET пр + BOPP жем 105": "383_079_B105.SSF114.HD.C_PETtr.N.BOPPperl_Std7_09.2023_StK.icc",
+   "80 BOPP мат + BOPP жем 129": "383_080_B129.SSF114.HD.C_BOPPmt.N.BOPPperl_Std7_09.2023_StK.icc",
+   "81 BOPP мат + BOPP жем 105": "383_081_B105.SSF114.HD.C_BOPPmt.N.BOPPperl_Std7_09.2023_StK.icc",
+   "82 PET пр + BOPP бел + белила 129": "383_082_B129.SSF114.HD.C_PETtr.W.BOPPw_Std7_09.2023_StK.icc",
+   "83 PET пр + BOPP бел + белила 105": "383_083_B105.SSF114.HD.C_PETtr.W.BOPPw_Std7_09.2023_StK.icc",
+   "84 BOPP мат + BOPP бел 129": "383_084_B129.SSF114.HD.C_BOPPmt.N.BOPPw_Std7_09.2023_StK.icc",
+   "85 BOPP мат + BOPP бел 105": "383_085_B105.SSF114.HD.C_BOPPmt.N.BOPPw_Std7_09.2023_StK.icc",
+   "86 BOPP мат + PE бел 129": "383_086_B129.SSF114.HD.C_BOPPmt.N.LDPEw_Std7_09.2023_StK.icc",
+   "87 BOPP мат + PE бел 105": "383_087_B105.SSF114.HD.C_BOPPmt.N.LDPEw_Std7_09.2023_StK.icc",
+   "90 BOPP мат + BOPP пр + белила 129": "383_090_B129.SSF114.HD.C_BOPPmt.W.BOPPtr_Std7_09.2023_StK.icc",
+   "91 BOPP мат + BOPP пр + белила 105": "383_091_B105.SSF114.HD.C_BOPPmt.W.BOPPtr_Std7_09.2023_StK.icc",
+   "92 PET пр + PE бел 129": "383_092_B129.SSF114.HD.C_PETtr.N.LDPEw_Std7_09.2023_StK.icc",
+   "93 PET пр + PE бел 105": "383_093_B105.SSF114.HD.C_PETtr.N.LDPEw_Std7_09.2023_StK.icc",
   },
   "Прямая": {
-   "41 BOPP пр + белила (129)": "383_041_F129.SSF114.HD.C_BOPPtr.W.N_Std7_09.2023",
-   "44 PE бел (129)": "383_044_F129.SSF114.HD.C_LDPEw.N.N_Std7_09.2023",
-   "49 BOPP пр + белила (105)": "383_049_F105.SSF114.HD.C_BOPPtr.W.N_Std7_09.2023",
-   "50 BOPP бел (105)": "383_050_F105.SSF114.HD.C_BOPPw.N.N_Std7_09.2023",
-   "51 BOPP жем (105)": "383_051_F105.SSF114.HD.C_BOPPperl.N.N_Std7_09.2023",
-   "52 PE бел (105)": "383_052_F105.SSF114.HD.C_LDPEw.N.N_Std7_09.2023",
-   "58 BOPP жем (129)": "383_058_F129.SSF114.HD.C_BOPPperl.N.N_Std7_09.2023",
-   "59 BOPP бел (129)": "383_059_F129.SSF114.HD.C_BOPPw.N.N_Std7_09.2023",
+   "41 BOPP пр + белила (129)": "383_041_F129.SSF114.HD.C_BOPPtr.W.N_Std7_09.2023_StK.icc",
+   "44 PE бел (129)": "383_044_F129.SSF114.HD.C_LDPEw.N.N_Std7_09.2023_StK.icc",
+   "49 BOPP пр + белила (105)": "383_049_F105.SSF114.HD.C_BOPPtr.W.N_Std7_09.2023_StK.icc",
+   "50 BOPP бел (105)": "383_050_F105.SSF114.HD.C_BOPPw.N.N_Std7_09.2023_StK.icc",
+   "51 BOPP жем (105)": "383_051_F105.SSF114.HD.C_BOPPperl.N.N_Std7_09.2023_StK.icc",
+   "52 PE бел (105)": "383_052_F105.SSF114.HD.C_LDPEw.N.N_Std7_09.2023_StK.icc",
+   "58 BOPP жем (129)": "383_058_F129.SSF114.HD.C_BOPPperl.N.N_Std7_09.2023_StK.icc",
+   "59 BOPP бел (129)": "383_059_F129.SSF114.HD.C_BOPPw.N.N_Std7_09.2023_StK.icc",
   },
   "Обратная": {
-   "45 PET пр + белила 129": "383_045_B129.SSF114.HD.C_PETtr.W.N_Std7_09.2023",
-   "46 PET пр 129": "383_046_B129.SSF114.HD.C_PETtr.N.N_Std7_09.2023",
-   "47 BOPP мат + белила 129": "383_047_B129.SSF114.HD.C_BOPPmt.W.N_Std7_09.2023",
-   "48 BOPP мат 129": "383_048_B129.SSF114.HD.C_BOPPmt.N.N_Std7_09.2023",
-   "53 PET пр + белила 105": "383_053_B105.SSF114.HD.C_PETtr.W.N_Std7_09.2023",
-   "54 PET пр 105": "383_054_B105.SSF114.HD.C_PETtr.N.N_Std7_09.2023",
-   "55 BOPP мат + белила 105": "383_055_B105.SSF114.HD.C_BOPPmt.W.N_Std7_09.2023",
-   "56 BOPP мат 105": "383_056_B105.SSF114.HD.C_BOPPmt.N.N_Std7_09.2023",
+   "45 PET пр + белила 129": "383_045_B129.SSF114.HD.C_PETtr.W.N_Std7_09.2023_StK.icc",
+   "46 PET пр 129": "383_046_B129.SSF114.HD.C_PETtr.N.N_Std7_09.2023_StK.icc",
+   "47 BOPP мат + белила 129": "383_047_B129.SSF114.HD.C_BOPPmt.W.N_Std7_09.2023_StK.icc",
+   "48 BOPP мат 129": "383_048_B129.SSF114.HD.C_BOPPmt.N.N_Std7_09.2023_StK.icc",
+   "53 PET пр + белила 105": "383_053_B105.SSF114.HD.C_PETtr.W.N_Std7_09.2023_StK.icc",
+   "54 PET пр 105": "383_054_B105.SSF114.HD.C_PETtr.N.N_Std7_09.2023_StK.icc",
+   "55 BOPP мат + белила 105": "383_055_B105.SSF114.HD.C_BOPPmt.W.N_Std7_09.2023_StK.icc",
+   "56 BOPP мат 105": "383_056_B105.SSF114.HD.C_BOPPmt.N.N_Std7_09.2023_StK.icc",
   },
   "Ламинат. Прямая": {
-   "70 PE бел + PE пр 129": "383_070_F129.SSF114.HD.C_LDPEw.N.LDPEtr_Std7_09.2023",
-   "71 PE бел + PE пр 105": "383_071_F105.SSF114.HD.C_LDPEw.N.LDPEtr_Std7_09.2023",
-   "76 BOPP жем + BOPP пр 129": "383_076_F129.SSF114.HD.C_BOPPperl.N.BOPPtr_Std7_09.2023",
-   "77 BOPP жем + BOPP пр 105": "383_077_F105.SSF114.HD.C_BOPPperl.N.BOPPtr_Std7_09.2023",
-   "88 BOPP бел + BOPP пр 129": "383_088_F129.SSF114.HD.C_BOPPw.N.BOPPtr_Std7_09.2023",
-   "89 BOPP бел + BOPP пр 105": "383_089_F105.SSF114.HD.C_BOPPw.N.BOPPtr_Std7_09.2023",
-   "94 BOPP бел + BOPP мат 129": "383_094_F129.SSF114.HD.C_BOPPw.N.BOPPmt_Std7_09.2023",
-   "95 BOPP бел + BOPP мат 105": "383_095_F105.SSF114.HD.C_BOPPw.N.BOPPmt_Std7_09.2023",
+   "70 PE бел + PE пр 129": "383_070_F129.SSF114.HD.C_LDPEw.N.LDPEtr_Std7_09.2023_StK.icc",
+   "71 PE бел + PE пр 105": "383_071_F105.SSF114.HD.C_LDPEw.N.LDPEtr_Std7_09.2023_StK.icc",
+   "76 BOPP жем + BOPP пр 129": "383_076_F129.SSF114.HD.C_BOPPperl.N.BOPPtr_Std7_09.2023_StK.icc",
+   "77 BOPP жем + BOPP пр 105": "383_077_F105.SSF114.HD.C_BOPPperl.N.BOPPtr_Std7_09.2023_StK.icc",
+   "88 BOPP бел + BOPP пр 129": "383_088_F129.SSF114.HD.C_BOPPw.N.BOPPtr_Std7_09.2023_StK.icc",
+   "89 BOPP бел + BOPP пр 105": "383_089_F105.SSF114.HD.C_BOPPw.N.BOPPtr_Std7_09.2023_StK.icc",
+   "94 BOPP бел + BOPP мат 129": "383_094_F129.SSF114.HD.C_BOPPw.N.BOPPmt_Std7_09.2023_StK.icc",
+   "95 BOPP бел + BOPP мат 105": "383_095_F105.SSF114.HD.C_BOPPw.N.BOPPmt_Std7_09.2023_StK.icc",
   },
 
  };
 
  const reproProfileNames2025 = {
   "Ламинат. Обратная": {
-   "114 BOPPtr + W + BOPPme 129": "114_B129.SSF114.HD.C_BOPPtr.W.BOPPme_Std8_06.25",
-   "115 BOPPtr + W + BOPPtr 129": "115_B129.SSF114.HD.C_BOPPtr.W.BOPPtr_Std8_06.25",
-   "116 BOPPtr + W + PEtr 129": "116_B129.SSF114.HD.C_BOPPtr.W.PEtr_Std8_06.25",
-   "117 BOPPtr + BOPPw 129": "117_B129.SSF114.HD.C_BOPPtr.N.BOPPw_Std8_06.25",
-   "118 BOPPtr + BOPPperl 129": "118_B129.SSF114.HD.C_BOPPtr.N.BOPPperl_Std8_06.25",
-   "119 BOPPmt + W + BOPPtr 129": "119_B129.SSF114.HD.C_BOPPmt.W.BOPPtr_Std8_06.25",
-   "120 BOPPmt + W + PEtr 129": "120_B129.SSF114.HD.C_BOPPmt.W.PEtr_Std8_06.25",
-   "121 BOPPmt + W + BOPPme 129": "121_B129.SSF114.HD.C_BOPPmt.W.BOPPme_Std8_06.25",
-   "122 BOPPmt + BOPPw 129": "122_B129.SSF114.HD.C_BOPPmt.N.BOPPw_Std8_06.25",
-   "129 BOPPtr + LDPEw 129": "129_B129.SSF114.HD.C_BOPPtr.N.LDPEw_Std8_06.25",
-   "130 BOPPtr + W + BOPPme 105": "130_B105.SSF114.HD.C_BOPPtr.W.BOPPme_Std8_06.25",
-   "131 BOPPtr + W + BOPPtr 105": "131_B105.SSF114.HD.C_BOPPtr.W.BOPPtr_Std8_06.25",
-   "132 BOPPtr + W + PEtr 105": "132_B105.SSF114.HD.C_BOPPtr.W.PEtr_Std8_06.25",
-   "133 BOPPtr + BOPPw 105": "133_B105.SSF114.HD.C_BOPPtr.N.BOPPw_Std8_06.25",
-   "134 BOPPtr + BOPPperl 105": "134_B105.SSF114.HD.C_BOPPtr.N.BOPPperl_Std8_06.25",
-   "135 BOPPmt + W + BOPPtr 105": "135_B105.SSF114.HD.C_BOPPmt.W.BOPPtr_Std8_06.25",
-   "136 BOPPmt + W + PEtr 105": "136_B105.SSF114.HD.C_BOPPmt.W.PEtr_Std8_06.25",
-   "137 BOPPmt + W + BOPPme 105": "137_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std8_06.25",
-   "138 BOPPmt + BOPPw 105": "138_B105.SSF114.HD.C_BOPPmt.N.BOPPw_Std8_06.25",
-   "145 BOPPtr + LDPEw 105": "145_B105.SSF114.HD.C_BOPPtr.N.LDPEw_Std8_06.25",
+   "114 BOPPtr + W + BOPPme 129": "MOS.383_114_B129.SSF114.HD.C_BOPPtr.W.BOPPme_Std8_06.25_StK.icc",
+   "115 BOPPtr + W + BOPPtr 129": "MOS.383_115_B129.SSF114.HD.C_BOPPtr.W.BOPPtr_Std8_06.25_StK.icc",
+   "116 BOPPtr + W + PEtr 129": "MOS.383_116_B129.SSF114.HD.C_BOPPtr.W.PEtr_Std8_06.25_StK.icc",
+   "117 BOPPtr + BOPPw 129": "MOS.383_117_B129.SSF114.HD.C_BOPPtr.N.BOPPw_Std8_06.25_StK.icc",
+   "118 BOPPtr + BOPPperl 129": "MOS.383_118_B129.SSF114.HD.C_BOPPtr.N.BOPPperl_Std8_06.25_StK.icc",
+   "119 BOPPmt + W + BOPPtr 129": "MOS.383_119_B129.SSF114.HD.C_BOPPmt.W.BOPPtr_Std8_06.25_StK.icc",
+   "120 BOPPmt + W + PEtr 129": "MOS.383_120_B129.SSF114.HD.C_BOPPmt.W.PEtr_Std8_06.25_StK.icc",
+   "121 BOPPmt + W + BOPPme 129": "MOS.383_121_B129.SSF114.HD.C_BOPPmt.W.BOPPme_Std8_06.25_StK.icc",
+   "122 BOPPmt + BOPPw 129": "MOS.383_122_B129.SSF114.HD.C_BOPPmt.N.BOPPw_Std8_06.25_StK.icc",
+   "129 BOPPtr + LDPEw 129": "MOS.383_129_B129.SSF114.HD.C_BOPPtr.N.LDPEw_Std8_06.25_StK.icc",
+   "130 BOPPtr + W + BOPPme 105": "MOS.383_130_B105.SSF114.HD.C_BOPPtr.W.BOPPme_Std8_06.25_StK.icc",
+   "131 BOPPtr + W + BOPPtr 105": "MOS.383_131_B105.SSF114.HD.C_BOPPtr.W.BOPPtr_Std8_06.25_StK.icc",
+   "132 BOPPtr + W + PEtr 105": "MOS.383_132_B105.SSF114.HD.C_BOPPtr.W.PEtr_Std8_06.25_StK.icc",
+   "133 BOPPtr + BOPPw 105": "MOS.383_133_B105.SSF114.HD.C_BOPPtr.N.BOPPw_Std8_06.25_StK.icc",
+   "134 BOPPtr + BOPPperl 105": "MOS.383_134_B105.SSF114.HD.C_BOPPtr.N.BOPPperl_Std8_06.25_StK.icc",
+   "135 BOPPmt + W + BOPPtr 105": "MOS.383_135_B105.SSF114.HD.C_BOPPmt.W.BOPPtr_Std8_06.25_StK.icc",
+   "136 BOPPmt + W + PEtr 105": "MOS.383_136_B105.SSF114.HD.C_BOPPmt.W.PEtr_Std8_06.25_StK.icc",
+   "137 BOPPmt + W + BOPPme 105": "MOS.383_137_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std8_06.25_StK.icc",
+   "138 BOPPmt + BOPPw 105": "MOS.383_138_B105.SSF114.HD.C_BOPPmt.N.BOPPw_Std8_06.25_StK.icc",
+   "145 BOPPtr + LDPEw 105": "MOS.383_145_B105.SSF114.HD.C_BOPPtr.N.LDPEw_Std8_06.25_StK.icc",
   },
   "Прямая": {
-   "096 BOPPme + W 129": "096_F129.SSF114.HD.C_BOPPme.W.N_Std8_06.25",
-   "097 BOPPtr + W 129": "097_F129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "098 BOPPw 129": "098_F129.SSF114.HD.C_BOPPw.N.N_Std8_06.25",
-   "099 BOPPperl 129": "099_F129.SSF114.HD.C_BOPPperl.N.N_Std8_06.25",
-   "100 LDPEw 129": "100_F129.SSF114.HD.C_LDPEw.N.N_Std8_06.25",
-   "101 BOPPtr + W 129": "101_B129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "102 BOPPtr 129": "102_B129.SSF114.HD.C_BOPPtr.N.N_Std8_06.25",
-   "103 BOPPmt + W 129": "103_B129.SSF114.HD.C_BOPPmt.W.N_Std8_06.25",
-   "104 BOPPmt 129": "104_B129.SSF114.HD.C_BOPPmt.N.N_Std8_06.25",
-   "105 BOPPme + W 105": "105_F105.SSF114.HD.C_BOPPme.W.N_Std8_06.25",
-   "106 BOPPtr + W 105": "106_F105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "107 BOPPw 105": "107_F105.SSF114.HD.C_BOPPw.N.N_Std8_06.25",
-   "108 BOPPperl 105": "108_F105.SSF114.HD.C_BOPPperl.N.N_Std8_06.25",
-   "109 LDPEw 105": "109_F105.SSF114.HD.C_LDPEw.N.N_Std8_06.25",
+   "096 BOPPme + W 129": "MOS.383_096_F129.SSF114.HD.C_BOPPme.W.N_Std8_06.25_StK.icc",
+   "097 BOPPtr + W 129": "MOS.383_097_F129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "098 BOPPw 129": "MOS.383_098_F129.SSF114.HD.C_BOPPw.N.N_Std8_06.25_StK.icc",
+   "099 BOPPperl 129": "MOS.383_099_F129.SSF114.HD.C_BOPPperl.N.N_Std8_06.25_StK.icc",
+   "100 LDPEw 129": "MOS.383_100_F129.SSF114.HD.C_LDPEw.N.N_Std8_06.25_StK.icc",
+   "101 BOPPtr + W 129": "MOS.383_101_B129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "102 BOPPtr 129": "MOS.383_102_B129.SSF114.HD.C_BOPPtr.N.N_Std8_06.25_StK.icc",
+   "103 BOPPmt + W 129": "MOS.383_103_B129.SSF114.HD.C_BOPPmt.W.N_Std8_06.25_StK.icc",
+   "104 BOPPmt 129": "MOS.383_104_B129.SSF114.HD.C_BOPPmt.N.N_Std8_06.25_StK.icc",
+   "105 BOPPme + W 105": "MOS.383_105_F105.SSF114.HD.C_BOPPme.W.N_Std8_06.25_StK.icc",
+   "106 BOPPtr + W 105": "MOS.383_106_F105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "107 BOPPw 105": "MOS.383_107_F105.SSF114.HD.C_BOPPw.N.N_Std8_06.25_StK.icc",
+   "108 BOPPperl 105": "MOS.383_108_F105.SSF114.HD.C_BOPPperl.N.N_Std8_06.25_StK.icc",
+   "109 LDPEw 105": "MOS.383_109_F105.SSF114.HD.C_LDPEw.N.N_Std8_06.25_StK.icc",
   },
   "Обратная": {
-   "101 BOPPtr + W 129": "101_B129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "102 BOPPtr 129": "102_B129.SSF114.HD.C_BOPPtr.N.N_Std8_06.25",
-   "103 BOPPmt + W 129": "103_B129.SSF114.HD.C_BOPPmt.W.N_Std8_06.25",
-   "104 BOPPmt 129": "104_B129.SSF114.HD.C_BOPPmt.N.N_Std8_06.25",
-   "105 BOPPme + W 105": "105_F105.SSF114.HD.C_BOPPme.W.N_Std8_06.25",
-   "106 BOPPtr + W 105": "106_F105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "107 BOPPw 105": "107_F105.SSF114.HD.C_BOPPw.N.N_Std8_06.25",
-   "108 BOPPperl 105": "108_F105.SSF114.HD.C_BOPPperl.N.N_Std8_06.25",
-   "109 LDPEw 105": "109_F105.SSF114.HD.C_LDPEw.N.N_Std8_06.25",
-   "110 BOPPtr + W 105": "110_B105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25",
-   "111 BOPPtr 105": "111_B105.SSF114.HD.C_BOPPtr.N.N_Std8_06.25",
-   "112 BOPPmt + W 105": "112_B105.SSF114.HD.C_BOPPmt.W.N_Std8_06.25",
-   "113 BOPPmt 105": "113_B105.SSF114.HD.C_BOPPmt.N.N_Std8_06.25",
+   "101 BOPPtr + W 129": "MOS.383_101_B129.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "102 BOPPtr 129": "MOS.383_102_B129.SSF114.HD.C_BOPPtr.N.N_Std8_06.25_StK.icc",
+   "103 BOPPmt + W 129": "MOS.383_103_B129.SSF114.HD.C_BOPPmt.W.N_Std8_06.25_StK.icc",
+   "104 BOPPmt 129": "MOS.383_104_B129.SSF114.HD.C_BOPPmt.N.N_Std8_06.25_StK.icc",
+   "105 BOPPme + W 105": "MOS.383_105_F105.SSF114.HD.C_BOPPme.W.N_Std8_06.25_StK.icc",
+   "106 BOPPtr + W 105": "MOS.383_106_F105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "107 BOPPw 105": "MOS.383_107_F105.SSF114.HD.C_BOPPw.N.N_Std8_06.25_StK.icc",
+   "108 BOPPperl 105": "MOS.383_108_F105.SSF114.HD.C_BOPPperl.N.N_Std8_06.25_StK.icc",
+   "109 LDPEw 105": "MOS.383_109_F105.SSF114.HD.C_LDPEw.N.N_Std8_06.25_StK.icc",
+   "110 BOPPtr + W 105": "MOS.383_110_B105.SSF114.HD.C_BOPPtr.W.N_Std8_06.25_StK.icc",
+   "111 BOPPtr 105": "MOS.383_111_B105.SSF114.HD.C_BOPPtr.N.N_Std8_06.25_StK.icc",
+   "112 BOPPmt + W 105": "MOS.383_112_B105.SSF114.HD.C_BOPPmt.W.N_Std8_06.25_StK.icc",
+   "113 BOPPmt 105": "MOS.383_113_B105.SSF114.HD.C_BOPPmt.N.N_Std8_06.25_StK.icc",
   },
   "Ламинат. Прямая": {
-   "123 BOPPw + BOPPtr 129": "123_F129.SSF114.HD.C_BOPPw.N.BOPPtr_Std8_06.25",
-   "124 BOPPw + BOPPmt 129": "124_F129.SSF114.HD.C_BOPPw.N.BOPPmt_Std8_06.25",
-   "125 LDPEw + BOPPtr 129": "125_F129.SSF114.HD.C_LDPEw.N.BOPPtr_Std8_06.25",
-   "126 LDPEw + BOPPmt 129": "126_F129.SSF114.HD.C_LDPEw.N.BOPPmt_Std8_06.25",
-   "127 BOPPperl + BOPPtr 129": "127_F129.SSF114.HD.C_BOPPperl.N.BOPPtr_Std8_06.25",
-   "128 BOPPperl + BOPPmt 129": "128_F129.SSF114.HD.C_BOPPperl.N.BOPPmt_Std8_06.25",
-   "139 BOPPw + BOPPtr 105": "139_F105.SSF114.HD.C_BOPPw.N.BOPPtr_Std8_06.25",
-   "140 BOPPw + BOPPmt 105": "140_F105.SSF114.HD.C_BOPPw.N.BOPPmt_Std8_06.25",
-   "141 LDPEw + BOPPtr 105": "141_F105.SSF114.HD.C_LDPEw.N.BOPPtr_Std8_06.25",
-   "142 LDPEw + BOPPmt 105": "142_F105.SSF114.HD.C_LDPEw.N.BOPPmt_Std8_06.25",
-   "143 BOPPperl + BOPPtr 105": "143_F105.SSF114.HD.C_BOPPperl.N.BOPPtr_Std8_06.25",
-   "144 BOPPperl + BOPPmt 105": "144_F105.SSF114.HD.C_BOPPperl.N.BOPPmt_Std8_06.25",
+   "123 BOPPw + BOPPtr 129": "MOS.383_123_F129.SSF114.HD.C_BOPPw.N.BOPPtr_Std8_06.25_StK.icc",
+   "124 BOPPw + BOPPmt 129": "MOS.383_124_F129.SSF114.HD.C_BOPPw.N.BOPPmt_Std8_06.25_StK.icc",
+   "125 LDPEw + BOPPtr 129": "MOS.383_125_F129.SSF114.HD.C_LDPEw.N.BOPPtr_Std8_06.25_StK.icc",
+   "126 LDPEw + BOPPmt 129": "MOS.383_126_F129.SSF114.HD.C_LDPEw.N.BOPPmt_Std8_06.25_StK.icc",
+   "127 BOPPperl + BOPPtr 129": "MOS.383_127_F129.SSF114.HD.C_BOPPperl.N.BOPPtr_Std8_06.25_StK.icc",
+   "128 BOPPperl + BOPPmt 129": "MOS.383_128_F129.SSF114.HD.C_BOPPperl.N.BOPPmt_Std8_06.25_StK.icc",
+   "139 BOPPw + BOPPtr 105": "MOS.383_139_F105.SSF114.HD.C_BOPPw.N.BOPPtr_Std8_06.25_StK.icc",
+   "140 BOPPw + BOPPmt 105": "MOS.383_140_F105.SSF114.HD.C_BOPPw.N.BOPPmt_Std8_06.25_StK.icc",
+   "141 LDPEw + BOPPtr 105": "MOS.383_141_F105.SSF114.HD.C_LDPEw.N.BOPPtr_Std8_06.25_StK.icc",
+   "142 LDPEw + BOPPmt 105": "MOS.383_142_F105.SSF114.HD.C_LDPEw.N.BOPPmt_Std8_06.25_StK.icc",
+   "143 BOPPperl + BOPPtr 105": "MOS.383_143_F105.SSF114.HD.C_BOPPperl.N.BOPPtr_Std8_06.25_StK.icc",
+   "144 BOPPperl + BOPPmt 105": "MOS.383_144_F105.SSF114.HD.C_BOPPperl.N.BOPPmt_Std8_06.25_StK.icc",
   },
 
  };
@@ -510,11 +511,41 @@ function changeVers(num) {
  * @param {String} profileStr - profile name from the drop-down list
  * */
 function setProfile(profileStr) {
+ var filmLay = false;
+
  try {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
-  profileFrame.contents = profileStr;
+  profileFrame.contents = _truncate(profileStr, 50);
  } catch (e) {
   // alert(e.line + '. ' + e.message);
+ }
+ try {
+  filmLay = activeDocument.layers.getByName(_getFilmLay());
+  filmLay.name = profileStr;
+ } catch (e) {
+ }
+
+ function _getFilmLay() {
+  var regExRepro2023 = /^383_+/;
+  var regExRepro2025 = /^MOS\.383_+/;
+  var regExCSS23 = /120_X_DR_0921__C\.icm$/;
+  var ad = activeDocument;
+  var lays = ad.layers;
+  var layNames = [];
+  for (var i = 0; i < lays.length; i++) {
+   var layName = lays[i].name;
+   if (layName.match('film') ||
+    layName.match(regExRepro2023) ||
+    layName.match(regExRepro2025) ||
+    layName.match(regExCSS23)) {
+    return layName;
+   }
+  }
+ }
+
+ function _truncate(str, maxlength) {
+  return (str.length > maxlength) ?
+   str.slice(0, maxlength - 1) + '…' : str;
  }
 }
 
