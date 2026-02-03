@@ -276,15 +276,15 @@ async function getFf(e) {
 
 function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem) {
  const cssProfileNames = {
-  "PE w": "PE_120_X_DR_0921__C.icm",
-  "BOPP tr": "BOPP_tr120_X_DR_0921__C.icm",
-  "BOPP mt": "BOPP(mate)_tr120_X_DR_0921__C.icm",
-  "dn BOPP tr": "BOPP(rev)_120_X_DR_0921__C.icm",
-  "dn BOPP mt": "BOPP(rev)(mate)_120_X_DR_0921__C.icm",
-  "dn BOPP tr+w": "BOPP+BOPP_120_X_DR_0921__C.icm",
-  "dn BOPP mt+w": "BOPP(mate)+BOPP_120_X_DR_0921__C.icm",
-  "dn BOPP tr+me": "BOPP+BOPP(met)_120_X_DR_0921__C.icm",
-  "dn BOPP mt+me": "BOPP(mate)+BOPP(met)_120_X_DR_0921__C.icm",
+  "PE w": "Polygrafresursy_PE_120_X_DR_0921__C.icm",
+  "BOPP tr": "Polygrafresursy_BOPP_tr120_X_DR_0921__C.icm",
+  "BOPP mt": "Polygrafresursy_BOPP(mate)_tr120_X_DR_0921__C.icm",
+  "dn BOPP tr": "Polygrafresursy_BOPP(rev)_120_X_DR_0921__C.icm",
+  "dn BOPP mt": "Polygrafresursy_BOPP(rev)(mate)_120_X_DR_0921__C.icm",
+  "dn BOPP tr+w": "Polygrafresursy_BOPP+BOPP_120_X_DR_0921__C.icm",
+  "dn BOPP mt+w": "Polygrafresursy_BOPP(mate)+BOPP_120_X_DR_0921__C.icm",
+  "dn BOPP tr+me": "Polygrafresursy_BOPP+BOPP(met)_120_X_DR_0921__C.icm",
+  "dn BOPP mt+me": "Polygrafresursy_BOPP(mate)+BOPP(met)_120_X_DR_0921__C.icm",
  };
  const reproProfileNames2023 = {
   "Ламинат. Обратная": {
