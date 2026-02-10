@@ -990,7 +990,8 @@ function setInks(inksObj) {
     prTableInkGr.opacity = 100;
     __setInkGr(prTableInkGr, currInkData, i);
    } else {
-    prTableInkGr.opacity = 0;
+    // prTableInkGr.opacity = 0;
+    __setInkGr(prTableInkGr, currInkData, '__null_ink__');
    }
   }
  } catch (e) {
@@ -1006,6 +1007,19 @@ function setInks(inksObj) {
     inkLpi = gr.pageItems.getByName('__ink-lpi__'),
     inkAngle = gr.pageItems.getByName('__ink-angle__'),
     inkNumber = gr.pageItems.getByName('__ink-number__');
+
+   if (i === '__null_ink__') {
+    var emDash = '—';
+    inkName.contents = emDash;
+    inkColor.filled = false;
+    inkColor.stroked = false;
+    inkPercent.contents = emDash;
+    inkLpi.contents = emDash;
+    inkAngle.contents = emDash;
+    inkNumber.contents = emDash;
+    return;
+   }
+
    if (inkData[0] == 'PANTONE Process Blue C') {
     inkName.contents = 'PANTONE Process Blue';
    } else {
@@ -1046,6 +1060,15 @@ function setInks(inksObj) {
    } else {
     var col = activeDocument.swatches.getByName(inkData[0]);
     inkColor.fillColor = col.color;
+    if(inkName.contents == 'W') {
+     try{
+      var infoTableSwatch = activeDocument.swatches.getByName('info-table');
+      inkColor.fillColor.tint = 0;
+      inkColor.strokeColor = infoTableSwatch.color;
+      inkColor.strokeWidth = .353;
+     } catch(e){}
+
+    }
    }
   }
  }
