@@ -76,9 +76,9 @@ block_output.addEventListener('click', (e) => {
  fitPanelToContent();
 });
 
-const cutsom_upack = document.querySelector('#custom_upack');
-cutsom_upack.addEventListener('click', (e) => {
- csInterface.evalScript(customUpack.toString() + ';customUpack()', function (result) {
+const noNameBtn = document.querySelector('#no_name');
+noNameBtn.addEventListener('click', (e) => {
+ csInterface.evalScript(noName.toString() + ';noName()', function (result) {
  });
 });
 

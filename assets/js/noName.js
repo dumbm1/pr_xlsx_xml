@@ -1,4 +1,4 @@
-function customUpack() {
+function noName() {
  var ad = activeDocument;
  var arr = [];
  var currOpacity;

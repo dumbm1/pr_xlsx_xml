@@ -1,10 +1,20 @@
-const fileName = "@-stamp_v3-1";
-pasteInfTab(fileName/*file name without path and extension*/);
+executeInfTab();
 
-function pasteInfTab(fileName) {
- const pasteInfTabBtn = document.getElementById("paste_inf_tab_btn");
- pasteInfTabBtn.addEventListener("click", function () {
-  csInterface.evalScript(jsx_main.toString() + ';jsx_main(' + '"' + fileName + '"' + ')', function (result) {
+function executeInfTab() {
+ const stampPrFileName = "stamp_pr.ai";
+ const stampKfFileName = "stamp_kf.ai";
+ const pasteInfTabPrBtn = document.getElementById("paste_inf_tab_pr_btn");
+ const pasteInfTabKfBtn = document.getElementById("paste_inf_tab_kf_btn");
+ pasteInfTabPrBtn.addEventListener("click", function () {
+  csInterface.evalScript(_executeAiStampFile.toString() + ';_executeAiStampFile()', function (result) {
+   alert(result);
+   /*   setTimeout(function () {
+       csInterface.evalScript(selAll.toString() + ";selAll();");
+      }, 2000)*/
+  });
+ });
+ pasteInfTabKfBtn.addEventListener("click", function () {
+  csInterface.evalScript(_executeAiStampFile.toString() + ';_executeAiStampFile(' + stampKfFileName + ')', function (result) {
 // alert(result);
    /*   setTimeout(function () {
        csInterface.evalScript(selAll.toString() + ";selAll();");
@@ -20,17 +30,18 @@ function pasteInfTab(fileName) {
  alert(documents.length);
 }*/
 
-function _executeAiStampFile(stampPrVersion, stampKfVersion) {
+function _executeAiStampFile() {
  var storePath = Folder.userData + '/LocalStore/cf_xlsx_xml/';
  var store = new Folder(storePath);
- var aiKfTableFile = store + '/kf-stamp_v' + stampKfVersion + '.ai';
- var aiPrTableFile = store + '/pr-stamp_v' + stampPrVersion + '.ai';
 
  if (!store.exists) {
+  store.create();
   store.execute();
-  alert("Отсутсвует файл штампа '" + aiPrTableFile + "'");
  }
 
+ // var aiTableFile = store + '/' + stampName;
+ var aiTableFile = new File(Folder.userData + '/LocalStore/cf_xlsx_xml/stamp_pr.ai');
+ aiTableFile.execute();
 }
 
 function jsx_main(fileName) {
