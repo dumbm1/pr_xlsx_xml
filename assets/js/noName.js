@@ -5,13 +5,13 @@ function noName() {
  var newOpacity;
 
  try {
-  var prLogoGr = ad.groupItems.getByName('__pr-logo__');
+  var prLogoGr = ad.groupItems.getByName('__company-logo__');
   arr.push(prLogoGr);
  } catch (e) {
  }
 
  try {
-  var prLogoTtGr = ad.groupItems.getByName('__pr-logo-tt__');
+  var prLogoTtGr = ad.groupItems.getByName('__company-logo-tt__');
   arr.push(prLogoTtGr);
  } catch (e) {
  }

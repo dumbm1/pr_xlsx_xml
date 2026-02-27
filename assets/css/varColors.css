@@ -117,7 +117,7 @@ html[data-theme='dark'] {
  --color-secondary: var(--color-darker-theme);
  --color-invert: var(--color-lighter-theme);
 
- --input-bg: var(input-dark-theme);
+ --input-bg: var(--input-dark-theme);
  --input-color: var(--color-darker-theme);
 
  --button-primary: var(--bg-dark-theme);
@@ -141,7 +141,7 @@ html[data-theme='darker'] {
  --color-secondary: var(--color-darker-theme);
  --color-invert: var(--color-lighter-theme);
 
- --input-bg: var(input-darker-theme);
+ --input-bg: var(--input-darker-theme);
  --input-color: var(--color-darker-theme);
 
  --button-primary: var(--bg-darker-theme);
