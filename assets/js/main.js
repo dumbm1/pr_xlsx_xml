@@ -29,7 +29,17 @@ reload_panel.addEventListener('click', () => {
 const close_panel = document.querySelector('#close_panel');
 close_panel.addEventListener('click', (e) => {
  if (!e.ctrlKey) return;
- csInterface.closeExtension();
+ // csInterface.closeExtension();
+ try {
+  let csInterface = new CSInterface();
+  // let OSVersion = csInterface.getOSInformation();
+  let path = csInterface.getSystemPath(SystemPath.EXTENSION);
+  const outField = document.querySelector('.output__field');
+  outField.innerHTML = path;
+  alert(path);
+ } catch (e) {
+  alert(e.message);
+ }
 });
 
 loadJSX('json2.js');
@@ -1060,13 +1070,14 @@ function setInks(inksObj) {
    } else {
     var col = activeDocument.swatches.getByName(inkData[0]);
     inkColor.fillColor = col.color;
-    if(inkName.contents == 'W') {
-     try{
+    if (inkName.contents == 'W') {
+     try {
       var infoTableSwatch = activeDocument.swatches.getByName('info-table');
       inkColor.fillColor.tint = 0;
       inkColor.strokeColor = infoTableSwatch.color;
       inkColor.strokeWidth = .353;
-     } catch(e){}
+     } catch (e) {
+     }
 
     }
    }

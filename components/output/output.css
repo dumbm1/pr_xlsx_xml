@@ -18,7 +18,8 @@
  border: none;
  outline: none;
  overflow: auto;
- background-color: var(--bg-secondary);
+ background-color: var(--bg-invert);
+ color: var(--color-invert);
 }
 
 .output__icon_clear {
