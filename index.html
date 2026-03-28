@@ -37,47 +37,53 @@
  </div>
 
  <div>
-  <div>
-   <label for="repro_profiles_2023" class="text-white-test">Профили Репро 2023</label>
+  <h4 style="padding: 0; margin: .5rem 0">Профили</h4>
+  <div class="select select_col">
+   <label for="proflex_profiles_2025" class="select_label text-white-test">ПроФлекс</label>
+   <select name="proflexprofiles2025" id="proflex_profiles_2025">
+    <option>2025</option>
+   </select>
+  </div>
+
+  <div class="select select_col">
+   <label for="repro_profiles_2023" class="text-white-test">Репро</label>
    <select name="reproProfiles2023" id="repro_profiles_2023">
-    <option>РепроПарк</option>
+    <option>2023</option>
    </select>
   </div>
-  <div>
-   <label for="css_profiles" class="text-white-test">Профили КСС</label>
+
+  <div class="select select_col">
+   <label for="css_profiles" class="text-white-test">КСС</label>
    <select name="cssProfiles" id="css_profiles">
-    <option>КСС</option>
+    <option>2021</option>
    </select>
   </div>
-  <div>
-   <label for="repro_profiles_2025" class="text-white-test">Профили Репро 2025</label>
+
+  <div class="select select_col">
+   <label for="repro_profiles_2025" class="text-white-test">Репро</label>
    <select name="reproProfiles2025" id="repro_profiles_2025">
-    <option>РепроПарк</option>
+    <option>2025</option>
    </select>
   </div>
  </div>
 
- <div>
+ <div class="select select_col">
   <label for="prepress" class="text-white-test">Инженер допечатной подготовки</label>
   <select name="prepress" id="prepress">
    <option>-</option>
-   <option>Данильченко Д.</option>
    <option>Какареко Е.</option>
-   <option>Савчук О.</option>
    <option>Шагиев М.</option>
   </select>
  </div>
  <div>
-  <button class="button" id="paste_inf_tab_pr_btn">Бланк 1</button>
-  <button class="button" id="paste_inf_tab_kf_btn">Бланк 2</button>
+  <button class="button" id="paste_inf_tab_ku_btn">Бланк КУ</button>
+  <button class="button" id="paste_inf_tab_kf_btn">Бланк КФ</button>
+  <button class="button" id="no_name">Обезличить</button>
  </div>
  <div>
   <!--			<button id="test">test</button>-->
   <button class="button" id="reload_panel">Reload</button>
   <button class="button" id="close_panel" style="opacity: .5">Close</button>
- </div>
- <div>
-  <button class="button" id="no_name">Обезличить</button>
  </div>
  <!-- <textarea id="output" class="output" style="overflow: scroll">***</textarea>-->
  <details class="output">

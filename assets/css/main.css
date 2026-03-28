@@ -12,6 +12,7 @@
 @import "../../components/input/number.css";
 @import "../../components/input/input-file.css";
 @import "../../components/output/output.css";
+@import "../../components/input/select.css";
 
 
 body {

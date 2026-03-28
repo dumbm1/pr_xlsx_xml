@@ -5,7 +5,8 @@
 let cssProfiles = document.getElementById('css_profiles');
 let reproProfiles2023 = document.getElementById('repro_profiles_2023');
 let reproProfiles2025 = document.getElementById('repro_profiles_2025');
-loadProfiles(cssProfiles, reproProfiles2023, reproProfiles2025);
+let proflexProfiles2025 = document.getElementById('proflex_profiles_2025');
+loadProfiles(cssProfiles, reproProfiles2023, reproProfiles2025, proflexProfiles2025);
 
 try {
  fitPanelToContent();
@@ -284,7 +285,30 @@ async function getFf(e) {
  return dataForTable;
 }
 
-function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem) {
+function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem, proflexSelHtmlElem) {
+ const proflexProfileNames = {
+  "036 B136 HD150  BOPPmt + W": "MOS.668_036_B136.ACE114.HD150_BOPPmt.W.N_Std5_12.25_StK.icc",
+  "037 B136 HD150  BOPPtr + W": "MOS.668_037_B136.ACE114.HD150_BOPPtr.W.N_Std5_12.25_StK.icc",
+  "038 B136 HD150  BOPPtr": "MOS.668_038_B136.ACE114.HD150_BOPPtr.N.N_Std5_12.25_StK.icc",
+  "039 B136 HD150  PETtr + W": "MOS.668_039_B136.ACE114.HD150_PETtr.W.N_Std5_12.25_StK.icc",
+  "040 B136 HD150  PETtr": "MOS.668_040_B136.ACE114.HD150_PETtr.N.N_Std5_12.25_StK.icc",
+  "041 B136 HD150  BOPPtr + W + BOPPtr": "MOS.668_041_B136.ACE114.HD150_BOPPtr.W.BOPPtr_Std5_12.25_StK.icc",
+  "042 B136 HDFT.C BOPPmt + W": "MOS.668_042_B136.ACE114.HDFT.C_BOPPmt.W.N_Std5_12.25_StK.icc",
+  "043 B136 HDFT.C BOPPtr + W": "MOS.668_043_B136.ACE114.HDFT.C_BOPPtr.W.N_Std5_12.25_StK.icc",
+  "044 B136 HDFT.C BOPPtr": "MOS.668_044_B136.ACE114.HDFT.C_BOPPtr.N.N_Std5_12.25_StK.icc",
+  "045 B136 HDFT.C PETtr + W": "MOS.668_045_B136.ACE114.HDFT.C_PETtr.W.N_Std5_12.25_StK.icc",
+  "046 B136 HDFT.C PETtr": "MOS.668_046_B136.ACE114.HDFT.C_PETtr.N.N_Std5_12.25_StK.icc",
+  "047 B136 HDFT.C BOPPtr + W + BOPPtr": "MOS.668_047_B136.ACE114.HDFT.C_BOPPtr.W.BOPPtr_Std5_12.25_StK.icc",
+  "048 B136 HD150  PETtr + PEw": "MOS.668_048_B136.ACE114.HD150_PETtr.N.PEw_Std5_12.25_StK.icc",
+  "049 B136 HDFT.C PETtr + PEw": "MOS.668_049_B136.ACE114.HDFT.C_PETtr.N.PEw_Std5_12.25_StK.icc",
+  "050 B136 HD150  PETtr + W + PEtr": "MOS.668_050_B136.ACE114.HD150_PETtr.W.PEtr_Std5_12.25_StK.icc",
+  "051 B136 HDFT.C PETtr + W + PEtr": "MOS.668_051_B136.ACE114.HDFT.C_PETtr.W.PEtr_Std5_12.25_StK.icc",
+  "052 B136 HD150  BOPPmt + W + BOPPme": "MOS.668_052_B136.ACE114.HD150_BOPPmt.W.BOPPme_Std5_12.25_StK.icc",
+  "053 B136 HDFT.C BOPPmt + W + BOPPme": "MOS.668_053_B136.ACE114.HDFT.C_BOPPmt.W.BOPPme_Std5_12.25_StK.icc",
+  "054 B136 HD150  BOPPtr + W + BOPPme": "MOS.668_054_B136.ACE114.HD150_BOPPtr.W.BOPPme_Std5_12.25_StK.icc",
+  "055 B136 HDFT.C BOPPtr + W + BOPPme": "MOS.668_055_B136.ACE114.HDFT.C_BOPPtr.W.BOPPme_Std5_12.25_StK.icc",
+  "056 F136 HD150  PEw + PEtr": "MOS.668_056_F136.ACE114.HD150_PEw.N.PEtr_Std5_12.25_StK.icc",
+ };
  const cssProfileNames = {
   "PE w": "Polygrafresursy_PE_120_X_DR_0921__C.icm",
   "BOPP tr": "Polygrafresursy_BOPP_tr120_X_DR_0921__C.icm",
@@ -430,6 +454,13 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
   },
 
  };
+
+ for (let key in proflexProfileNames) {
+  let optHtmlElem = document.createElement('option');
+  optHtmlElem.innerHTML = key;
+  optHtmlElem.value = proflexProfileNames[key];
+  proflexSelHtmlElem.append(optHtmlElem);
+ }
 
  for (let key in cssProfileNames) {
   let optHtmlElem = document.createElement('option');

@@ -1,0 +1,9 @@
+.select{
+ display: flex;
+}
+.select_col{
+ flex-direction: column;
+}
+.select_row {
+ flex-direction: row;
+}

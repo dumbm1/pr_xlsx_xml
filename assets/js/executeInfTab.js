@@ -1,9 +1,9 @@
 executeInfTab();
 
 function executeInfTab() {
- let stampPrFileName = "stamp_pr_v3-1.ai";
+ let stampPrFileName = "stamp_ku_v0-1.ai";
  let stampKfFileName = "stamp_kf_v0-1.ai";
- const pasteInfTabPrBtn = document.getElementById("paste_inf_tab_pr_btn");
+ const pasteInfTabPrBtn = document.getElementById("paste_inf_tab_ku_btn");
  const pasteInfTabKfBtn = document.getElementById("paste_inf_tab_kf_btn");
  const extPath = csInterface.getSystemPath(SystemPath.EXTENSION);
 
