@@ -2,11 +2,11 @@
  * При загрузке расширения высота панели подгонятся по ВЫСОТЕ контента.
  * Ограничения по габаритам панели заданы в файле CSXS/manifest.xml
  * */
-let cssProfiles = document.getElementById('css_profiles');
-let reproProfiles2023 = document.getElementById('repro_profiles_2023');
-let reproProfiles2025 = document.getElementById('repro_profiles_2025');
-let proflexProfiles2025 = document.getElementById('proflex_profiles_2025');
-loadProfiles(cssProfiles, reproProfiles2023, reproProfiles2025, proflexProfiles2025);
+let prCssProfiles2021 = document.getElementById('pr_css_profiles_2021');
+let prReproProfiles2023 = document.getElementById('pr_repro_profiles_2023');
+let prReproProfiles2025 = document.getElementById('pr_repro_profiles_2025');
+let pfReproProfiles2025 = document.getElementById('pf_repro_profiles_2025');
+loadProfiles(prCssProfiles2021, prReproProfiles2023, prReproProfiles2025, pfReproProfiles2025);
 
 try {
  fitPanelToContent();
@@ -79,6 +79,12 @@ prepress.addEventListener('change', (e) => {
  }
 });
 
+const details_inks = document.querySelector('details.tab-inks');
+details_inks.addEventListener('click', (e) => {
+
+ fitPanelToContent();
+});
+
 const block_output = document.querySelector('details.output');
 block_output.addEventListener('click', (e) => {
  if (e.target.id == 'btn_clear_output') {
@@ -93,6 +99,12 @@ noNameBtn.addEventListener('click', (e) => {
  });
 });
 
+const set_time_stamps = document.querySelector('#set_time_stamps');
+set_time_stamps.addEventListener('click', (e) => {
+ csInterface.evalScript(setTimeStamps.toString() + ';setTimeStamps()', function (result) {
+ });
+});
+
 try {
  getInkCoverage();
  getXlsx();
@@ -100,18 +112,22 @@ try {
 } catch (e) {
  // alert(e);
 }
-
-cssProfiles.addEventListener('change', (e) => {
+pfReproProfiles2025.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
  });
 });
-reproProfiles2023.addEventListener('change', (e) => {
+prCssProfiles2021.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
  });
 });
-reproProfiles2025.addEventListener('change', (e) => {
+prReproProfiles2023.addEventListener('change', (e) => {
+ let profileStr = e.target.value;
+ csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
+ });
+});
+prReproProfiles2025.addEventListener('change', (e) => {
  let profileStr = e.target.value;
  csInterface.evalScript(setProfile.toString() + ';setProfile(' + JSON.stringify(profileStr) + ')', function (result) {
  });
@@ -285,8 +301,8 @@ async function getFf(e) {
  return dataForTable;
 }
 
-function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem, proflexSelHtmlElem) {
- const proflexProfileNames = {
+function loadProfiles(prCssSelHtmlElem, prRepro2023SelHtmlElem, prRepro2025SelHtmlElem, pfRepro2025SelHtmlElem) {
+ const pfReproProfileNames2025 = {
   "036 B136 HD150  BOPPmt + W": "MOS.668_036_B136.ACE114.HD150_BOPPmt.W.N_Std5_12.25_StK.icc",
   "037 B136 HD150  BOPPtr + W": "MOS.668_037_B136.ACE114.HD150_BOPPtr.W.N_Std5_12.25_StK.icc",
   "038 B136 HD150  BOPPtr": "MOS.668_038_B136.ACE114.HD150_BOPPtr.N.N_Std5_12.25_StK.icc",
@@ -309,7 +325,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
   "055 B136 HDFT.C BOPPtr + W + BOPPme": "MOS.668_055_B136.ACE114.HDFT.C_BOPPtr.W.BOPPme_Std5_12.25_StK.icc",
   "056 F136 HD150  PEw + PEtr": "MOS.668_056_F136.ACE114.HD150_PEw.N.PEtr_Std5_12.25_StK.icc",
  };
- const cssProfileNames = {
+ const prCssProfileNames2021 = {
   "PE w": "Polygrafresursy_PE_120_X_DR_0921__C.icm",
   "BOPP tr": "Polygrafresursy_BOPP_tr120_X_DR_0921__C.icm",
   "BOPP mt": "Polygrafresursy_BOPP(mate)_tr120_X_DR_0921__C.icm",
@@ -320,7 +336,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
   "dn BOPP tr+me": "Polygrafresursy_BOPP+BOPP(met)_120_X_DR_0921__C.icm",
   "dn BOPP mt+me": "Polygrafresursy_BOPP(mate)+BOPP(met)_120_X_DR_0921__C.icm",
  };
- const reproProfileNames2023 = {
+ const prReproProfileNames2023 = {
   "Ламинат. Обратная": {
    "60 BOPP мат + BOPP ме + белила 105": "383_060_B105.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023_StK.icc",
    "61 BOPP мат + BOPP ме + белила 129": "383_061_B129.SSF114.HD.C_BOPPmt.W.BOPPme_Std7_09.2023_StK.icc",
@@ -384,7 +400,7 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
 
  };
 
- const reproProfileNames2025 = {
+ const prReproProfileNames2025 = {
   "Ламинат. Обратная": {
    "114 BOPPtr + W + BOPPme 129": "MOS.383_114_B129.SSF114.HD.C_BOPPtr.W.BOPPme_Std8_06.25_StK.icc",
    "115 BOPPtr + W + BOPPtr 129": "MOS.383_115_B129.SSF114.HD.C_BOPPtr.W.BOPPtr_Std8_06.25_StK.icc",
@@ -455,44 +471,44 @@ function loadProfiles(cssSelHtmlElem, repro2023SelHtmlElem, repro2025SelHtmlElem
 
  };
 
- for (let key in proflexProfileNames) {
+ for (let key in pfReproProfileNames2025) {
   let optHtmlElem = document.createElement('option');
   optHtmlElem.innerHTML = key;
-  optHtmlElem.value = proflexProfileNames[key];
-  proflexSelHtmlElem.append(optHtmlElem);
+  optHtmlElem.value = pfReproProfileNames2025[key];
+  pfRepro2025SelHtmlElem.append(optHtmlElem);
  }
 
- for (let key in cssProfileNames) {
+ for (let key in prCssProfileNames2021) {
   let optHtmlElem = document.createElement('option');
   optHtmlElem.innerHTML = key;
-  optHtmlElem.value = cssProfileNames[key];
-  cssSelHtmlElem.append(optHtmlElem);
+  optHtmlElem.value = prCssProfileNames2021[key];
+  prCssSelHtmlElem.append(optHtmlElem);
  }
 
- for (let key in reproProfileNames2023) {
+ for (let key in prReproProfileNames2023) {
   let optGr = document.createElement('optgroup');
   optGr.label = key;
-  let printTypeObj = reproProfileNames2023[key];
+  let printTypeObj = prReproProfileNames2023[key];
   for (let j in printTypeObj) {
    let optEl = document.createElement('option');
    optEl.innerHTML = j;
    optEl.value = printTypeObj[j];
    optGr.append(optEl);
   }
-  repro2023SelHtmlElem.append(optGr);
+  prRepro2023SelHtmlElem.append(optGr);
  }
 
- for (let key in reproProfileNames2025) {
+ for (let key in prReproProfileNames2025) {
   let optGr = document.createElement('optgroup');
   optGr.label = key;
-  let printTypeObj = reproProfileNames2025[key];
+  let printTypeObj = prReproProfileNames2025[key];
   for (let j in printTypeObj) {
    let optEl = document.createElement('option');
    optEl.innerHTML = j;
    optEl.value = printTypeObj[j];
    optGr.append(optEl);
   }
-  repro2025SelHtmlElem.append(optGr);
+  prRepro2025SelHtmlElem.append(optGr);
  }
 
 }
@@ -1113,5 +1129,96 @@ function setInks(inksObj) {
     }
    }
   }
+ }
+}
+
+/**
+ * 31.01.2021
+ * Search all visible frames with name '__current_date_and_time__'
+ * replace date in format dd.mm.yy[yy], dd-dd-yy[yy] to current date
+ * replace time in format hh:mm to current time
+ * 27.12.2021
+ * 1. get selection > get text frames from selection > confirm to replace contents of frames to current date
+ * 2. if no selection or no confirm  try to get time stamps by name and replace contents to current date
+ * todo: if no time stamps and no selection, confirm to make time stamp in active layer
+ *
+ * */
+function setTimeStamps() {
+ var timeStampName = '__current_date_and_time__',
+  timeStampFrames = _getTextFramesByName(timeStampName),
+  selFrames = _getSelFrames(),
+  now = new Date(),
+  reData = /(\d{2}[-.]){2}\d{2}(\d{2})?/gmi,
+  reTime = /\d{2}[:]\d{2}/gmi,
+  strDate = 'Дата: ' + _formatDate(now) + '\nВремя: ' + _formatTime(now);
+
+ if (timeStampFrames.length) {
+  for (var i = 0; i < timeStampFrames.length; i++) {
+   currFr = timeStampFrames[i];
+   if (!currFr.layer.visible) continue;
+   currFr.contents = currFr.contents.replace(reData, _formatDate(now));
+   currFr.contents = currFr.contents.replace(reTime, _formatTime(now));
+  }
+ }
+
+ if (selFrames.length) {
+  var confirmSetTimeStamps = +confirm("ВНИМАНИЕ!\nВЫ УВЕРЕНЫ, что хотите заменить содержимое всех выделенных текстовых блоков на текущую дату и время?");
+  if (confirmSetTimeStamps) {
+   for (var i = 0; i < selFrames.length; i++) {
+    if (selFrames[i].name == timeStampName) continue;
+    selFrames[i].name = timeStampName;
+    selFrames[i].contents = strDate;
+   }
+   return 'step one was processed';
+  }
+ }
+
+ function _getTextFramesByName(name/*@param: String, @return: Array*/) {
+  var res = [];
+  for (var i = 0; i < activeDocument.textFrames.length; i++) {
+   var currFrame = activeDocument.textFrames[i];
+   if (currFrame.name != name) continue;
+   // if (!currFrame.layer.visible) continue;
+   res.push(currFrame);
+  }
+  return res;
+ }
+
+ function _getSelFrames() {
+  var frames = [];
+  if (!selection.length) return;
+  if (selection.typename == 'TextRange') return;
+  if (!selection[0]) return;
+
+  for (var i = 0; i < selection.length; i++) {
+   if (selection[i].typename != 'TextFrame') continue;
+   frames.push(selection[i]);
+  }
+  return frames;
+ }
+
+ function _formatTime(date) {
+
+  var hh = date.getHours();
+  if (hh < 10) hh = '0' + hh;
+
+  var mn = date.getMinutes();
+  if (mn < 10) mn = '0' + mn;
+
+  return hh + ':' + mn;
+ }
+
+ function _formatDate(date) {
+
+  var dd = date.getDate();
+  if (dd < 10) dd = '0' + dd;
+
+  var mm = date.getMonth() + 1;
+  if (mm < 10) mm = '0' + mm;
+
+  var yyyy = date.getFullYear() /*% 100*/;
+  // if (yy < 10) yy = yyyy;
+
+  return dd + '.' + mm + '.' + yyyy;
  }
 }

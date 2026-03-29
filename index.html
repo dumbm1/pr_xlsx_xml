@@ -38,30 +38,31 @@
 
  <div>
   <h4 style="padding: 0; margin: .5rem 0">Профили</h4>
+
   <div class="select select_col">
-   <label for="proflex_profiles_2025" class="select_label text-white-test">ПроФлекс</label>
-   <select name="proflexprofiles2025" id="proflex_profiles_2025">
+   <label for="pf_repro_profiles_2025" class="select_label text-white-test">ПроФлекс Репро</label>
+   <select name="pfReproProfiles2025" id="pf_repro_profiles_2025">
     <option>2025</option>
    </select>
   </div>
 
   <div class="select select_col">
-   <label for="repro_profiles_2023" class="text-white-test">Репро</label>
-   <select name="reproProfiles2023" id="repro_profiles_2023">
+   <label for="pr_repro_profiles_2023" class="text-white-test">Полиграф Репро</label>
+   <select name="prReproProfiles2023" id="pr_repro_profiles_2023">
     <option>2023</option>
    </select>
   </div>
 
   <div class="select select_col">
-   <label for="css_profiles" class="text-white-test">КСС</label>
-   <select name="cssProfiles" id="css_profiles">
+   <label for="pr_css_profiles_2021" class="text-white-test">Поиграф КСС</label>
+   <select name="prCssProfiles" id="pr_css_profiles_2021">
     <option>2021</option>
    </select>
   </div>
 
   <div class="select select_col">
-   <label for="repro_profiles_2025" class="text-white-test">Репро</label>
-   <select name="reproProfiles2025" id="repro_profiles_2025">
+   <label for="pr_repro_profiles_2025" class="text-white-test">Полиграф Репро</label>
+   <select name="prReproProfiles2025" id="pr_repro_profiles_2025">
     <option>2025</option>
    </select>
   </div>
@@ -75,11 +76,39 @@
    <option>Шагиев М.</option>
   </select>
  </div>
+
  <div>
-  <button class="button" id="paste_inf_tab_ku_btn">Бланк КУ</button>
-  <button class="button" id="paste_inf_tab_kf_btn">Бланк КФ</button>
-  <button class="button" id="no_name">Обезличить</button>
+  <button class="button" id="paste_inf_tab_kf_btn">Бланк КастомФлекс</button>
+  <button class="button" id="paste_inf_tab_ku_btn">Бланк Кастом</button>
  </div>
+
+ <div>
+  <button class="button" id="no_name">Обезличить</button>
+  <button class="button" id="set_time_stamps">Обновить дату</button>
+ </div>
+
+ <div>
+
+  <!-- <textarea id="output" class="output" style="overflow: scroll">***</textarea>-->
+  <details class="tab-inks">
+   <summary class="">
+    Краски (в разработке)
+   </summary>
+
+   <ul>
+    <li>первая какая-то краска</li>
+    <li>вторая какая-то краска</li>
+    <li>третья какая-то краска</li>
+    <li>четвертая какая-то краска</li>
+    <li>пятая какая-то краска</li>
+    <li>шестая какая-то краска</li>
+    <li>седьмая какая-то краска</li>
+    <li>восьмая какая-то краска</li>
+   </ul>
+
+  </details>
+ </div>
+
  <div>
   <!--			<button id="test">test</button>-->
   <button class="button" id="reload_panel">Reload</button>
