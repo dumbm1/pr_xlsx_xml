@@ -303,6 +303,7 @@ async function getFf(e) {
 
 function loadProfiles(prCssSelHtmlElem, prRepro2023SelHtmlElem, prRepro2025SelHtmlElem, pfRepro2025SelHtmlElem) {
  const pfReproProfileNames2025 = {
+  "030 F136 HD150  BOPPtr + W": "MOS.668_030_F136.ACE114.HD150_BOPPtr.W.N_Std4_02.25_StK.icc",
   "036 B136 HD150  BOPPmt + W": "MOS.668_036_B136.ACE114.HD150_BOPPmt.W.N_Std5_12.25_StK.icc",
   "037 B136 HD150  BOPPtr + W": "MOS.668_037_B136.ACE114.HD150_BOPPtr.W.N_Std5_12.25_StK.icc",
   "038 B136 HD150  BOPPtr": "MOS.668_038_B136.ACE114.HD150_BOPPtr.N.N_Std5_12.25_StK.icc",
