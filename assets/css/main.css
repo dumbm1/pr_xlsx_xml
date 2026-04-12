@@ -13,7 +13,7 @@
 @import "../../components/input/input-file.css";
 @import "../../components/output/output.css";
 @import "../../components/input/select.css";
-
+@import "../../components/details/details.css";
 
 body {
  /*font-family: "Source Sans Pro", sans-serif;*/

@@ -3,6 +3,14 @@
  box-sizing: border-box;
 }
 
+.container_mt-1 {
+ padding-top: 1rem;
+}
+
+.container_mt-05 {
+ padding-top: .5rem;
+}
+
 .container_col {
  display: grid;
  margin: 0;
