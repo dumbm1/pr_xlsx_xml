@@ -632,11 +632,11 @@ function setProfile(profileStr) {
  } catch (e) {
   // alert(e.line + '. ' + e.message);
  }
- try {
+/* try {
   filmLay = activeDocument.layers.getByName(_getFilmLay());
   filmLay.name = profileStr;
  } catch (e) {
- }
+ }*/
 
  function _getFilmLay() {
   var regExRepro2023 = /^383_+/;
