@@ -628,7 +628,7 @@ function setProfile(profileStr) {
 
  try {
   var profileFrame = activeDocument.textFrames.getByName('__pr-stamp__icmProfile__');
-  profileFrame.contents = _truncate(profileStr, 50);
+  profileFrame.contents = _truncate(profileStr, 120);
  } catch (e) {
   // alert(e.line + '. ' + e.message);
  }
