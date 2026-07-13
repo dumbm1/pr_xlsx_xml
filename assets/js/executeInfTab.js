@@ -1,18 +1,30 @@
 executeInfTab();
 
 function executeInfTab() {
- let stampPrFileName = "stamp_ku_v0-1.ai";
- let stampKfFileName = "stamp_kf_v0-1.ai";
- const pasteInfTabPrBtn = document.getElementById("paste_inf_tab_ku_btn");
+ let stampKUFileName = "stamp_ku_v0-1-offset.ai";
+ let stampKUFileNameFlex = "stamp_ku_v0-1-flex.ai";
+ let stampKfFileName = "stamp_kf_v0-1-offset.ai";
+ let stampKfFileNameFlex = "stamp_kf_v0-1-flex.ai";
+ const pasteInfTabKUBtn = document.getElementById("paste_inf_tab_ku_btn");
+ const pasteInfTabKUBtn_flex = document.getElementById("paste_inf_tab_ku_btn_flex");
  const pasteInfTabKfBtn = document.getElementById("paste_inf_tab_kf_btn");
+ const pasteInfTabKfBtn_flex = document.getElementById("paste_inf_tab_kf_btn_flex");
  const extPath = csInterface.getSystemPath(SystemPath.EXTENSION);
 
- pasteInfTabPrBtn.addEventListener("click", function () {
-  csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampPrFileName + '")', function (result) {
+ pasteInfTabKUBtn.addEventListener("click", function () {
+  csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampKUFileName + '")', function (result) {
+  });
+ });
+ pasteInfTabKUBtn_flex.addEventListener("click", function () {
+  csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampKUFileNameFlex + '")', function (result) {
   });
  });
  pasteInfTabKfBtn.addEventListener("click", function () {
   csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampKfFileName + '")', function (result) {
+  });
+ });
+ pasteInfTabKfBtn_flex.addEventListener("click", function () {
+  csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampKfFileNameFlex + '")', function (result) {
   });
  });
 
