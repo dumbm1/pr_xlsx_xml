@@ -16,6 +16,7 @@ function executeInfTab() {
  pasteInfTabKUBtn.addEventListener("click", function (e) {
   if (e.ctrlKey || e.metaKey) def = true;
   csInterface.evalScript(jsx_executeAiStampFile.toString() + ';jsx_executeAiStampFile("' + extPath + '","' + stampKUFileName + '","' + def + '")', function (result) {
+   console.log(result);
    def = false;
   });
  });
@@ -64,6 +65,7 @@ function executeInfTab() {
     targFileStamp.execute();
     return targFileStamp;
    } catch (e) {
+    alert(e);
     return e;
    }
   }
@@ -72,10 +74,13 @@ function executeInfTab() {
    (documents.length && !(new File(activeDocument.fullName).exists))) {
    try {
     targFile = File.openDialog();
+    targFile = _setAiExtension(targFile);
+
     targFileStamp = _copyAiFile(tmplFileStamp, targFile);
     targFileStamp.execute();
     return targFileStamp;
    } catch (e) {
+    alert(e);
     return e;
    }
   }
@@ -83,12 +88,33 @@ function executeInfTab() {
   if (documents.length && new File(activeDocument.fullName).exists) {
    try {
     targFile = new File(activeDocument.fullName).openDlg();
+    targFile = _setAiExtension(targFile);
+
     targFileStamp = _copyAiFile(tmplFileStamp, targFile);
     targFileStamp.execute();
     return targFileStamp;
    } catch (e) {
+    alert(e);
     return e;
    }
+  }
+
+  function _setAiExtension(f) {
+   if (f.name.slice(-3) == '.ai') return f;
+
+   var fName = f.name;
+   var fPath = f.path;
+
+   if (fName.slice(-3, -2) == '.') {
+    fName = fName.slice(0, -3) + '.ai';
+   } else if (fName.slice(-4, -3) == '.') {
+    fName = fName.slice(0, -4) + '.ai';
+   } else if (fName.slice(-5, -4) == '.') {
+    fName = fName.slice(0, -5) + '.ai';
+   } else {
+    fName += '.ai';
+   }
+   return new File(fPath + '/' + fName);
   }
 
   function _copyAiFile(tmplFile, targFile) {
