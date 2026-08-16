@@ -632,11 +632,12 @@ function setProfile(profileStr) {
  } catch (e) {
   // alert(e.line + '. ' + e.message);
  }
-/* try {
-  filmLay = activeDocument.layers.getByName(_getFilmLay());
-  filmLay.name = profileStr;
- } catch (e) {
- }*/
+
+ /* try {
+   filmLay = activeDocument.layers.getByName(_getFilmLay());
+   filmLay.name = profileStr;
+  } catch (e) {
+  }*/
 
  function _getFilmLay() {
   var regExRepro2023 = /^383_+/;
@@ -799,6 +800,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
+      break;
       // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
@@ -807,6 +809,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
+      break;
       // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -12)] || blankField;
@@ -815,6 +818,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
+      break;
       // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -12)]) || blankField;
@@ -825,7 +829,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
      break;
@@ -833,6 +837,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
+      break;
       // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -11)] || blankField;
@@ -841,7 +846,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = __getStreamNames(o[fieldName.slice(12, -11)]) || blankField;
      break;
@@ -850,7 +855,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -858,7 +863,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -866,7 +871,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -875,7 +880,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -883,7 +888,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -900,7 +905,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = blankField;
      if (o.printSideUp !== undefined) fieldElem.contents = 'Прямая';
@@ -911,7 +916,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      var filmPrint = '',
       filmCover = '',
@@ -928,7 +933,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
@@ -937,7 +942,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o.streamWidth * __getStreamNumb(o.streamsNumber) || blankField;
      break;
@@ -946,7 +951,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      if (o.supports.match(/да/i)) {
       fieldElem.contents = (o.streamWidth * __getStreamNumb(o.streamsNumber) + 14) || blankField;
@@ -961,7 +966,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o.streamWidth || blankField;
      break;
@@ -970,7 +975,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o.rapport || blankField;
      break;
@@ -979,7 +984,7 @@ function setXlsxData(o) {
      try {
       var fieldElem = ad.textFrames.getByName(fieldName);
      } catch (e) {
-      // alert(e.line + '. ' + e.message);
+      break;   // alert(e.line + '. ' + e.message);
      }
      fieldElem.contents = o[fieldName.slice(12, -2)] || blankField;
      break;
