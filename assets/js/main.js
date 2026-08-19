@@ -1108,7 +1108,7 @@ function setInks(inksObj) {
     prTableInkGr.opacity = 100;
     __setInkGr(prTableInkGr, currInkData, i);
    } else {
-    // prTableInkGr.opacity = 0;
+    prTableInkGr.opacity = 0;
     __setInkGr(prTableInkGr, currInkData, '__null_ink__');
    }
   }
